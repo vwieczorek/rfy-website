@@ -1,96 +1,82 @@
 // OAuth callback - exchanges code for token
+// Based on: https://github.com/SubhenduX/decap-cms-cloudflare-pages
+
+function renderBody(status, content) {
+  // Decap CMS expects a two-way handshake:
+  // 1. Popup sends "authorizing:github" to opener
+  // 2. Parent responds with a message
+  // 3. Popup sends token using message.origin from the response
+  const html = `
+    <script>
+      const receiveMessage = (message) => {
+        window.opener.postMessage(
+          'authorization:github:${status}:${JSON.stringify(content)}',
+          message.origin
+        );
+        window.removeEventListener("message", receiveMessage, false);
+      }
+      window.addEventListener("message", receiveMessage, false);
+      window.opener.postMessage("authorizing:github", "*");
+    </script>
+  `;
+  const blob = new Blob([html]);
+  return blob;
+}
+
 export async function onRequestGet(context) {
-  const url = new URL(context.request.url);
-  const code = url.searchParams.get('code');
+  const { request, env } = context;
 
-  if (!code) {
-    return new Response('Missing code parameter', { status: 400 });
-  }
+  const client_id = env.GITHUB_CLIENT_ID;
+  const client_secret = env.GITHUB_CLIENT_SECRET;
 
-  const clientId = context.env.GITHUB_CLIENT_ID;
-  const clientSecret = context.env.GITHUB_CLIENT_SECRET;
-
-  if (!clientId || !clientSecret) {
+  if (!client_id || !client_secret) {
     return new Response('OAuth not configured', { status: 500 });
   }
 
-  // Exchange code for access token
-  const tokenResponse = await fetch('https://github.com/login/oauth/access_token', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      client_id: clientId,
-      client_secret: clientSecret,
-      code: code,
-    }),
-  });
+  try {
+    const url = new URL(request.url);
+    const code = url.searchParams.get('code');
 
-  const tokenData = await tokenResponse.json();
+    if (!code) {
+      return new Response('Missing code parameter', { status: 400 });
+    }
 
-  if (tokenData.error) {
-    return new Response(`OAuth error: ${tokenData.error_description || tokenData.error}`, { status: 400 });
-  }
+    const response = await fetch(
+      'https://github.com/login/oauth/access_token',
+      {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          'user-agent': 'rfy-website-oauth',
+          'accept': 'application/json',
+        },
+        body: JSON.stringify({ client_id, client_secret, code }),
+      },
+    );
 
-  // Safely encode the token data for embedding in HTML
-  const messageData = JSON.stringify({
-    token: tokenData.access_token,
-    provider: 'github'
-  });
+    const result = await response.json();
 
-  // Base64 encode to avoid any escaping issues
-  const encodedData = btoa(messageData);
-
-  // Return HTML that posts the token back to the CMS
-  // Decap CMS expects a two-way handshake:
-  // 1. Popup sends "authorizing:github"
-  // 2. Parent responds
-  // 3. Popup sends the actual token
-  const html = `<!DOCTYPE html>
-<html>
-<head>
-  <title>Authenticating...</title>
-</head>
-<body>
-  <script>
-    (function() {
-      var data = JSON.parse(atob("${encodedData}"));
-
-      if (!window.opener) {
-        document.body.innerHTML = '<p>Authentication successful! You can close this window.</p>';
-        return;
-      }
-
-      // Step 1: Send initial handshake message
-      window.opener.postMessage("authorizing:github", "*");
-
-      // Step 2: Listen for response from parent, then send token
-      window.addEventListener("message", function receiveMessage(event) {
-        // Send the token regardless of the message content
-        // (parent will send back the provider name)
-        var message = "authorization:github:success:" + JSON.stringify(data);
-        window.opener.postMessage(message, "*");
-
-        // Remove listener and close window
-        window.removeEventListener("message", receiveMessage);
-        setTimeout(function() { window.close(); }, 500);
+    if (result.error) {
+      return new Response(renderBody('error', result), {
+        headers: { 'content-type': 'text/html;charset=UTF-8' },
+        status: 401
       });
+    }
 
-      // Fallback: if no response after 2 seconds, send token anyway
-      setTimeout(function() {
-        var message = "authorization:github:success:" + JSON.stringify(data);
-        window.opener.postMessage(message, "*");
-        setTimeout(function() { window.close(); }, 500);
-      }, 2000);
-    })();
-  </script>
-  <p>Authenticating...</p>
-</body>
-</html>`;
+    const token = result.access_token;
+    const provider = 'github';
+    const responseBody = renderBody('success', { token, provider });
 
-  return new Response(html, {
-    headers: { 'Content-Type': 'text/html' },
-  });
+    return new Response(responseBody, {
+      headers: { 'content-type': 'text/html;charset=UTF-8' },
+      status: 200
+    });
+
+  } catch (error) {
+    console.error(error);
+    return new Response(error.message, {
+      headers: { 'content-type': 'text/html;charset=UTF-8' },
+      status: 500,
+    });
+  }
 }
