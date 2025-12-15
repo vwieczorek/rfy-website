@@ -1,0 +1,313 @@
+backend:
+  name: github
+  repo: reachforyouth/website
+  branch: main
+  auth_endpoint: /api/auth
+
+media_folder: "assets/images"
+public_folder: "/assets/images"
+
+publish_mode: simple
+
+collections:
+  # =====================
+  # SITE SETTINGS
+  # =====================
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "site"
+        label: "Organization Info"
+        file: "_data/site.json"
+        fields:
+          - { label: "Organization Name", name: "name", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Donate URL", name: "donateUrl", widget: "string" }
+          - { label: "Volunteer Form URL", name: "volunteerFormUrl", widget: "string" }
+          - label: "Phone Numbers"
+            name: "phone"
+            widget: "object"
+            fields:
+              - { label: "Main Phone", name: "main", widget: "string" }
+              - { label: "Main Phone (Formatted)", name: "mainFormatted", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - label: "Offices"
+            name: "offices"
+            widget: "object"
+            fields:
+              - label: "Central Office"
+                name: "central"
+                widget: "object"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Address", name: "address", widget: "string" }
+                  - { label: "City", name: "city", widget: "string" }
+                  - { label: "State", name: "state", widget: "string" }
+                  - { label: "ZIP", name: "zip", widget: "string" }
+                  - { label: "Phone", name: "phone", widget: "string" }
+              - label: "Southside Office"
+                name: "southside"
+                widget: "object"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Address", name: "address", widget: "string" }
+                  - { label: "City", name: "city", widget: "string" }
+                  - { label: "State", name: "state", widget: "string" }
+                  - { label: "ZIP", name: "zip", widget: "string" }
+                  - { label: "Phone", name: "phone", widget: "string" }
+          - label: "Social Media"
+            name: "social"
+            widget: "object"
+            fields:
+              - { label: "Facebook", name: "facebook", widget: "string" }
+              - { label: "Instagram", name: "instagram", widget: "string" }
+              - { label: "LinkedIn", name: "linkedin", widget: "string" }
+              - { label: "YouTube", name: "youtube", widget: "string" }
+              - { label: "Twitter/X", name: "twitter", widget: "string" }
+          - label: "Crisis Lines"
+            name: "crisisLines"
+            widget: "object"
+            fields:
+              - label: "Marion County Crisis"
+                name: "marionCrisis"
+                widget: "object"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Phone", name: "phone", widget: "string" }
+              - label: "Marion County Helpline"
+                name: "marionHelp"
+                widget: "object"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Phone", name: "phone", widget: "string" }
+              - label: "Johnson County Helpline"
+                name: "johnsonHelp"
+                widget: "object"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Phone", name: "phone", widget: "string" }
+
+      - name: "event"
+        label: "Featured Event"
+        file: "_data/event.json"
+        fields:
+          - { label: "Show Event", name: "visible", widget: "boolean", default: true }
+          - { label: "Event Name", name: "name", widget: "string" }
+          - { label: "Date", name: "date", widget: "string", hint: "e.g., Spring 2026" }
+          - { label: "Location", name: "location", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+
+  # =====================
+  # STATISTICS
+  # =====================
+  - name: "statistics"
+    label: "Statistics"
+    files:
+      - name: "stats"
+        label: "Impact Statistics"
+        file: "_data/stats.json"
+        fields:
+          - label: "Hero Stats (Homepage)"
+            name: "hero"
+            widget: "list"
+            fields:
+              - { label: "Number", name: "number", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+          - label: "Impact Stats"
+            name: "impact"
+            widget: "list"
+            fields:
+              - { label: "Number", name: "number", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+          - label: "Volunteer Stats"
+            name: "volunteer"
+            widget: "list"
+            fields:
+              - { label: "Number", name: "number", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+
+  # =====================
+  # PEOPLE
+  # =====================
+  - name: "people"
+    label: "People"
+    files:
+      - name: "staff"
+        label: "Staff Members"
+        file: "_data/staff.json"
+        fields:
+          - label: "Staff Members"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Photo", name: "image", widget: "image", required: false }
+
+      - name: "board"
+        label: "Board Members"
+        file: "_data/board.json"
+        fields:
+          - label: "Board Members"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Photo", name: "image", widget: "image", required: false }
+
+  # =====================
+  # ABOUT PAGE
+  # =====================
+  - name: "about"
+    label: "About Page"
+    files:
+      - name: "timeline"
+        label: "History Timeline"
+        file: "_data/timeline.json"
+        fields:
+          - label: "Timeline Events"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Year", name: "year", widget: "string" }
+              - { label: "Description", name: "content", widget: "text" }
+
+  # =====================
+  # EVENTS PAGE
+  # =====================
+  - name: "events"
+    label: "Events Page"
+    files:
+      - name: "sponsorship"
+        label: "Sponsorship Levels"
+        file: "_data/sponsorshipLevels.json"
+        fields:
+          - label: "Sponsorship Levels"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Level Name", name: "name", widget: "string" }
+              - { label: "Amount", name: "amount", widget: "string", hint: "e.g., 10,000" }
+
+  # =====================
+  # DONATE PAGE
+  # =====================
+  - name: "donate"
+    label: "Donate Page"
+    files:
+      - name: "impact"
+        label: "Donation Impact Levels"
+        file: "_data/donationImpact.json"
+        fields:
+          - label: "Impact Levels"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Amount", name: "amount", widget: "string", hint: "e.g., 25" }
+              - { label: "Impact Description", name: "description", widget: "string" }
+
+  # =====================
+  # VOLUNTEER PAGE
+  # =====================
+  - name: "volunteer"
+    label: "Volunteer Page"
+    files:
+      - name: "opportunities"
+        label: "Volunteer Opportunities"
+        file: "_data/volunteerOpportunities.json"
+        fields:
+          - label: "Opportunities"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Details"
+                name: "details"
+                widget: "list"
+                field: { label: "Detail", name: "detail", widget: "string" }
+
+  # =====================
+  # SUCCESS STORIES PAGE
+  # =====================
+  - name: "stories"
+    label: "Success Stories"
+    files:
+      - name: "featured"
+        label: "Featured Story"
+        file: "_data/featuredStory.json"
+        fields:
+          - { label: "Quote", name: "quote", widget: "text" }
+          - { label: "Attribution", name: "attribution", widget: "string" }
+          - { label: "Program", name: "program", widget: "string" }
+          - { label: "Full Story", name: "story", widget: "markdown", required: false }
+          - { label: "Image URL", name: "image", widget: "image", required: false }
+          - { label: "Image Alt Text", name: "imageAlt", widget: "string", required: false }
+          - { label: "Story Text", name: "text", widget: "text", required: false }
+
+      - name: "all-stories"
+        label: "All Stories"
+        file: "_data/stories.json"
+        fields:
+          - label: "Stories"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Program", name: "program", widget: "string" }
+              - { label: "Tag Color", name: "tagColor", widget: "select", options: ["green", "blue", "purple", "orange"] }
+              - { label: "Outcome", name: "outcome", widget: "string" }
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Photo", name: "image", widget: "image", required: false }
+              - { label: "Flip Image", name: "flipImage", widget: "boolean", default: false, required: false }
+
+      - name: "testimonials"
+        label: "Testimonials"
+        file: "_data/testimonials.json"
+        fields:
+          - label: "Testimonials"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Initial", name: "initial", widget: "string", hint: "First letter for avatar" }
+
+  # =====================
+  # SERVICES PAGES
+  # =====================
+  - name: "services"
+    label: "Services"
+    files:
+      - name: "mental-health"
+        label: "Mental Health Services"
+        file: "_data/mentalHealthServices.json"
+        fields:
+          - label: "Services"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Icon", name: "icon", widget: "select", options: ["icon-user", "icon-heart", "icon-book", "icon-help"] }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Service Items"
+                name: "items"
+                widget: "list"
+                field: { label: "Item", name: "item", widget: "string" }
+
+      - name: "restorative"
+        label: "Restorative Justice Programs"
+        file: "_data/restorativePrograms.json"
+        fields:
+          - label: "Programs"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Features"
+                name: "features"
+                widget: "list"
+                field: { label: "Feature", name: "feature", widget: "string" }

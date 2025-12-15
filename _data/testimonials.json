@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "quote": "R.E.A.C.H. teaches you life lessons that actually matter. I learned how to handle my emotions and make better decisions.",
+      "name": "Amari, 18",
+      "role": "R.E.A.C.H. Student",
+      "initial": "A"
+    },
+    {
+      "quote": "The counselors didn't judge us. They helped us communicate again as a family. We're stronger now.",
+      "name": "Parent",
+      "role": "Family Services",
+      "initial": "P"
+    },
+    {
+      "quote": "RFY's school-based services have transformed our ability to support students in crisis.",
+      "name": "School Counselor",
+      "role": "Educational Partner",
+      "initial": "S"
+    },
+    {
+      "quote": "Watching young people transform through Teen Court reminds me why this work matters.",
+      "name": "Teen Court Volunteer",
+      "role": "Community Partner",
+      "initial": "V"
+    },
+    {
+      "quote": "I was scared to ask for help. RFY made it safe. Now my children are thriving.",
+      "name": "Maria, Mom of 3",
+      "role": "Mental Health Services",
+      "initial": "M"
+    },
+    {
+      "quote": "RFY is an essential partner in building healthier communities for our youth.",
+      "name": "Community Partner",
+      "role": "Johnson County",
+      "initial": "C"
+    }
+  ]
+}

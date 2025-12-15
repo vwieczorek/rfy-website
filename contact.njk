@@ -1,0 +1,186 @@
+---
+layout: base.njk
+title: Contact Us
+description: Get in touch with Reach For Youth for services, volunteer opportunities, or any questions about our programs.
+---
+
+<section class="page-hero">
+  <div class="container">
+    <h1 class="page-hero__title">Contact Us</h1>
+    <p class="page-hero__subtitle">
+      We're here to help. Reach out for services, volunteer opportunities,
+      or any questions you may have.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- Contact Information -->
+      <div>
+        <div class="contact-info">
+          <h2>Get in Touch</h2>
+
+          <div class="contact-item">
+            <div class="contact-item__icon">
+              <svg aria-hidden="true"><use href="#icon-phone"/></svg>
+            </div>
+            <div>
+              <div class="contact-item__label">Phone</div>
+              <div class="contact-item__value">
+                <a href="tel:{{ site.offices.central.phone | replace('-', '') }}">{{ site.offices.central.phone }}</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item__icon">✉️</div>
+            <div>
+              <div class="contact-item__label">Email</div>
+              <div class="contact-item__value">
+                <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item__icon">📍</div>
+            <div>
+              <div class="contact-item__label">{{ site.offices.central.name }}</div>
+              <div class="contact-item__value">
+                {{ site.offices.central.address }}<br>
+                {{ site.offices.central.city }}, {{ site.offices.central.state }} {{ site.offices.central.zip }}
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item__icon">📍</div>
+            <div>
+              <div class="contact-item__label">{{ site.offices.southside.name }}</div>
+              <div class="contact-item__value">
+                {{ site.offices.southside.address }}<br>
+                {{ site.offices.southside.city }}, {{ site.offices.southside.state }} {{ site.offices.southside.zip }}
+              </div>
+              <div style="font-size: 0.875rem; color: var(--color-text-muted); margin-top: var(--space-xs);">
+                <a href="tel:{{ site.offices.southside.phone | replace('-', '') }}">{{ site.offices.southside.phone }}</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="office-hours">
+            <h3>Office Hours</h3>
+            <div class="office-hours__item">
+              <span class="office-hours__day">Monday - Friday</span>
+              <span>8:30 AM - 5:00 PM</span>
+            </div>
+            <div class="office-hours__item">
+              <span class="office-hours__day">Saturday - Sunday</span>
+              <span>Closed</span>
+            </div>
+            <p style="font-size: 0.8125rem; color: var(--color-text-muted); margin-top: var(--space-md);">
+              Evening appointments available by request
+            </p>
+          </div>
+        </div>
+
+        <div class="map-container">
+          <span>Interactive map coming soon</span>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <h2>Send Us a Message</h2>
+        <form action="#" method="POST" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName" class="form-label">
+                First Name <span class="required">*</span>
+              </label>
+              <input type="text" id="firstName" name="firstName" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName" class="form-label">
+                Last Name <span class="required">*</span>
+              </label>
+              <input type="text" id="lastName" name="lastName" class="form-input" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email" class="form-label">
+                Email <span class="required">*</span>
+              </label>
+              <input type="email" id="email" name="email" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="phone" class="form-label">Phone</label>
+              <input type="tel" id="phone" name="phone" class="form-input">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="subject" class="form-label">
+              I'm interested in... <span class="required">*</span>
+            </label>
+            <select id="subject" name="subject" class="form-select" required>
+              <option value="">Please select</option>
+              <option value="services">Counseling & Services</option>
+              <option value="volunteer">Volunteering</option>
+              <option value="donate">Donating</option>
+              <option value="referral">Making a Referral</option>
+              <option value="partnership">Community Partnership</option>
+              <option value="media">Media Inquiry</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="form-label">
+              Message <span class="required">*</span>
+            </label>
+            <textarea id="message" name="message" class="form-textarea" required></textarea>
+            <p class="form-help">
+              Please do not include sensitive personal or health information in this form.
+            </p>
+          </div>
+
+          <button type="submit" class="btn btn--primary" style="width: 100%;">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Emergency Info -->
+<section class="section section--cool emergency-section">
+  <div class="container">
+    <h2>Need Immediate Help?</h2>
+    <p style="color: var(--color-text-light); max-width: 600px; margin: var(--space-lg) auto;">
+      If you or someone you know is in crisis, please reach out immediately.
+    </p>
+    <div class="emergency-numbers">
+      <div class="emergency-number">
+        <div class="emergency-number__label">Reach For Youth</div>
+        <div class="emergency-number__value">
+          <a href="tel:{{ site.offices.central.phone | replace('-', '') }}">{{ site.offices.central.phone }}</a>
+        </div>
+      </div>
+      <div class="emergency-number">
+        <div class="emergency-number__label">National Crisis Line</div>
+        <div class="emergency-number__value">
+          <a href="tel:988">988</a>
+        </div>
+      </div>
+      <div class="emergency-number">
+        <div class="emergency-number__label">Crisis Text Line</div>
+        <div class="emergency-number__value">Text HOME to 741741</div>
+      </div>
+    </div>
+  </div>
+</section>

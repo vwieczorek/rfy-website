@@ -1,0 +1,109 @@
+---
+layout: base.njk
+title: About Reach For Youth
+description: For over 50 years, Reach For Youth has been a trusted resource for youth and families in Central Indiana, providing mental health services, restorative justice programs, and prevention education.
+---
+
+<!-- HERO SECTION -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container">
+    <div class="hero__content">
+      <h1 id="hero-title" class="hero__title">About Reach For Youth</h1>
+      <p class="hero__subtitle">
+        For over 50 years, we've been a trusted resource for youth and families in Central Indiana.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION SECTION -->
+<section class="section section--warm" aria-labelledby="mission-title">
+  <div class="container">
+    <h2 id="mission-title" class="section-title">Our Mission</h2>
+    <p style="font-size: 1.25rem; line-height: 1.8; max-width: 800px; margin: 0 auto; text-align: center; color: var(--color-text-light);">
+      Reach For Youth is a Youth Service Bureau committed to supporting, representing, and protecting the rights of young people. We provide comprehensive mental health, restorative justice, and prevention services that empower youth and families to thrive.
+    </p>
+  </div>
+</section>
+
+<!-- HISTORY SECTION -->
+<section class="section" aria-labelledby="history-title">
+  <div class="container">
+    <h2 id="history-title" class="section-title">50+ Years of <span>Service</span></h2>
+    <p class="section-subtitle">
+      Our journey from advocacy to comprehensive youth services
+    </p>
+
+    <div class="timeline">
+      {% for item in timeline.items %}
+      <div class="timeline__item">
+        <div class="timeline__marker"></div>
+        <div class="timeline__year">{{ item.year }}</div>
+        <div class="timeline__content">
+          {{ item.content }}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- STAFF SECTION -->
+<section class="section section--cool" aria-labelledby="staff-title">
+  <div class="container">
+    <h2 id="staff-title" class="section-title">Our Team</h2>
+    <p class="section-subtitle">
+      Meet the dedicated professionals who make our work possible.
+    </p>
+
+    <div class="team-grid">
+      {% for member in staff.items %}
+      <article class="team-card">
+        <div class="team-card__image">
+          {% if member.image %}
+          <img src="{{ member.image }}" alt="{{ member.name }}" class="team-card__photo">
+          {% else %}
+          <div class="team-card__avatar">
+            <svg aria-hidden="true"><use href="#icon-user"/></svg>
+          </div>
+          {% endif %}
+        </div>
+        <div class="team-card__content">
+          <h3 class="team-card__name">{{ member.name }}</h3>
+          <p class="team-card__title">{{ member.title }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- BOARD SECTION -->
+<section class="section section--warm" aria-labelledby="board-title">
+  <div class="container">
+    <h2 id="board-title" class="section-title">Board of Directors</h2>
+    <p class="section-subtitle">
+      Our volunteer board provides governance and strategic direction.
+    </p>
+
+    <div class="team-grid">
+      {% for member in board.items %}
+      <article class="team-card">
+        <div class="team-card__image">
+          {% if member.image %}
+          <img src="{{ member.image }}" alt="{{ member.name }}" class="team-card__photo">
+          {% else %}
+          <div class="team-card__avatar">
+            <svg aria-hidden="true"><use href="#icon-user"/></svg>
+          </div>
+          {% endif %}
+        </div>
+        <div class="team-card__content">
+          <h3 class="team-card__name">{{ member.name }}</h3>
+          <p class="team-card__title">{{ member.title }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

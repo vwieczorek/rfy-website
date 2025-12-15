@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ description or site.description }}">
+  <meta name="robots" content="noindex, nofollow">
+  <title>{{ title }} | {{ site.name }}</title>
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  {% include "icons.njk" %}
+
+  <!-- Skip link for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Crisis Support Banner -->
+  <div class="crisis-banner" role="banner" aria-label="Crisis support information">
+    <div class="container">
+      Need immediate support? Call us at
+      <a href="tel:{{ site.phone.main | replace('-', '') }}" class="crisis-banner__phone">{{ site.phone.main }}</a>
+      or text/call 988 for the Suicide & Crisis Lifeline
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" role="banner">
+    <div class="container header__inner">
+      <a href="/" class="logo" aria-label="{{ site.name }} - Home">
+        <img src="/images/logo.png" alt="{{ site.name }}" class="logo__img">
+      </a>
+
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <ul class="nav__list">
+          <li><a href="/about/" class="nav__link{% if page.url == '/about/' %} nav__link--active{% endif %}">About Us</a></li>
+          <li><a href="/services/" class="nav__link{% if '/services' in page.url %} nav__link--active{% endif %}">Our Services</a></li>
+          <li><a href="/success-stories/" class="nav__link{% if page.url == '/success-stories/' %} nav__link--active{% endif %}">Our Success Stories</a></li>
+          <li><a href="/volunteer/" class="nav__link{% if page.url == '/volunteer/' %} nav__link--active{% endif %}">Volunteer</a></li>
+          <li><a href="/events/" class="nav__link{% if page.url == '/events/' %} nav__link--active{% endif %}">Events</a></li>
+        </ul>
+        <div class="nav__cta">
+          <button class="translate-btn" onclick="showTranslateHelp()" aria-label="Translate this page">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          </button>
+          <a href="{{ site.donateUrl }}" class="btn btn--primary btn--small" target="_blank" rel="noopener">Donate Now</a>
+        </div>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    {{ content | safe }}
+  </main>
+
+  {% include "footer.njk" %}
+  {% include "translate-modal.njk" %}
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile navigation toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navList = document.querySelector('.nav__list');
+
+    if (navToggle && navList) {
+      navToggle.addEventListener('click', () => {
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', !expanded);
+        navList.style.display = expanded ? 'none' : 'flex';
+      });
+    }
+
+    // Translate modal
+    function showTranslateHelp() {
+      const modal = document.getElementById('translateModal');
+      modal.classList.add('active');
+      document.body.classList.add('modal-open');
+      const firstBtn = modal.querySelector('.translate-modal__lang-btn');
+      if (firstBtn) firstBtn.focus();
+    }
+
+    function closeTranslateHelp() {
+      document.getElementById('translateModal').classList.remove('active');
+      document.body.classList.remove('modal-open');
+    }
+
+    function translatePage(langCode) {
+      const baseUrl = window.location.origin;
+      const pathname = window.location.pathname;
+      const canonicalUrl = encodeURIComponent(baseUrl + pathname);
+      const translateUrl = `https://translate.google.com/translate?sl=en&tl=${langCode}&u=${canonicalUrl}`;
+      window.open(translateUrl, '_blank');
+      closeTranslateHelp();
+    }
+
+    document.getElementById('translateModal').addEventListener('click', function(e) {
+      if (e.target === this) closeTranslateHelp();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeTranslateHelp();
+    });
+
+    // Donation amount selection
+    const donationAmounts = document.querySelectorAll('.donation-amount');
+    donationAmounts.forEach(amount => {
+      amount.addEventListener('click', () => {
+        donationAmounts.forEach(a => {
+          a.classList.remove('donation-amount--selected');
+          a.setAttribute('aria-pressed', 'false');
+        });
+        amount.classList.add('donation-amount--selected');
+        amount.setAttribute('aria-pressed', 'true');
+      });
+
+      amount.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          amount.click();
+        }
+      });
+    });
+  </script>
+
+  <!-- Mobile Sticky CTA Bar -->
+  <div class="mobile-cta" role="navigation" aria-label="Quick actions">
+    <div class="mobile-cta__grid">
+      <a href="tel:{{ site.phone.main | replace('-', '') }}" class="mobile-cta__btn mobile-cta__btn--call">
+        <svg aria-hidden="true"><use href="#icon-phone"/></svg>
+        Call Now
+      </a>
+      <a href="/services/" class="mobile-cta__btn mobile-cta__btn--help">
+        <svg aria-hidden="true"><use href="#icon-help"/></svg>
+        Get Help
+      </a>
+      <a href="{{ site.donateUrl }}" class="mobile-cta__btn mobile-cta__btn--donate" target="_blank" rel="noopener">
+        <svg aria-hidden="true"><use href="#icon-gift"/></svg>
+        Donate
+      </a>
+    </div>
+  </div>
+</body>
+</html>

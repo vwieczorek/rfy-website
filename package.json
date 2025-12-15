@@ -1,0 +1,13 @@
+{
+  "name": "rfy-website",
+  "version": "1.0.0",
+  "description": "Reach For Youth website",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "serve": "npx @11ty/eleventy --serve",
+    "start": "npx @11ty/eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

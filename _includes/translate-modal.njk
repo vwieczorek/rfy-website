@@ -1,0 +1,36 @@
+<!-- Translate Modal -->
+<div class="translate-modal" id="translateModal" role="dialog" aria-labelledby="translateTitle" aria-modal="true">
+  <div class="translate-modal__content">
+    <div class="translate-modal__icon">🌐</div>
+    <h3 id="translateTitle" class="translate-modal__title">Read in Your Language</h3>
+    <p class="translate-modal__subtitle">Lee en tu idioma</p>
+
+    <div class="translate-modal__languages" role="group" aria-label="Choose your language">
+      <a href="#" class="translate-modal__lang-btn" data-lang="es" onclick="translatePage('es'); return false;">
+        <span class="translate-modal__lang-native">Español</span>
+        <span class="translate-modal__lang-english">Spanish</span>
+      </a>
+      <a href="#" class="translate-modal__lang-btn" data-lang="vi" onclick="translatePage('vi'); return false;">
+        <span class="translate-modal__lang-native">Tiếng Việt</span>
+        <span class="translate-modal__lang-english">Vietnamese</span>
+      </a>
+      <a href="#" class="translate-modal__lang-btn" data-lang="my" onclick="translatePage('my'); return false;">
+        <span class="translate-modal__lang-native">မြန်မာ</span>
+        <span class="translate-modal__lang-english">Burmese</span>
+      </a>
+      <a href="#" class="translate-modal__lang-btn" data-lang="ar" onclick="translatePage('ar'); return false;">
+        <span class="translate-modal__lang-native">العربية</span>
+        <span class="translate-modal__lang-english">Arabic</span>
+      </a>
+    </div>
+
+    <div class="translate-modal__divider">or use browser translate</div>
+
+    <p class="translate-modal__browser-tip">
+      Chrome: Right-click → Translate<br>
+      Safari/Edge: Click translate icon in address bar
+    </p>
+
+    <button class="translate-modal__close" onclick="closeTranslateHelp()">Got it!</button>
+  </div>
+</div>

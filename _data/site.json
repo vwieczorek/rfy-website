@@ -1,0 +1,51 @@
+{
+  "name": "Reach For Youth",
+  "tagline": "Hope, Healing & Second Chances for Youth",
+  "description": "Reach For Youth provides mental health counseling, restorative justice programs, and educational support for youth and families in Central Indiana.",
+  "donateUrl": "https://give.reachforyouth.org",
+  "volunteerFormUrl": "https://forms.office.com/pages/responsepage.aspx?id=B42wyLUcq0KjPh9N-SgREtZ3k11AI9tIo3kD9-veom5UQlhEUFhFSUpaT1RYNE5ZUFFWQktNVEtRVS4u&route=shorturl",
+  "phone": {
+    "main": "317-920-5900",
+    "mainFormatted": "(317) 920-5900"
+  },
+  "offices": {
+    "central": {
+      "name": "Central Office",
+      "address": "3505 N. Washington Blvd",
+      "city": "Indianapolis",
+      "state": "IN",
+      "zip": "46205",
+      "phone": "317-920-5900"
+    },
+    "southside": {
+      "name": "Southside Office",
+      "address": "435 E Main St, Suite 100",
+      "city": "Greenwood",
+      "state": "IN",
+      "zip": "46143",
+      "phone": "317-788-4451"
+    }
+  },
+  "email": "rfy@reachforyouth.org",
+  "social": {
+    "facebook": "https://facebook.com/reachforyouth",
+    "instagram": "https://instagram.com/reachforyouth",
+    "linkedin": "https://linkedin.com/company/reach-for-youth",
+    "youtube": "https://youtube.com/@reachforyouth",
+    "twitter": "https://x.com/reachforyouth"
+  },
+  "crisisLines": {
+    "marionCrisis": {
+      "name": "Marion County Crisis & Suicide Hotline",
+      "phone": "317-251-7575"
+    },
+    "marionHelp": {
+      "name": "Marion County Helpline",
+      "phone": "317-926-4357"
+    },
+    "johnsonHelp": {
+      "name": "Johnson County Helpline",
+      "phone": "317-738-4636"
+    }
+  }
+}

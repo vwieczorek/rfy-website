@@ -1,0 +1,58 @@
+{
+  "items": [
+    {
+      "name": "Roger",
+      "program": "Teen Court",
+      "tagColor": "green",
+      "outcome": "Offender to Volunteer Advocate",
+      "quote": "I want to give my peers the same opportunities I had.",
+      "image": "/images/story-roger-teen-court.jpg",
+      "flipImage": true
+    },
+    {
+      "name": "Courtney",
+      "program": "Teen Court",
+      "tagColor": "green",
+      "outcome": "Referred to Law School Bound",
+      "quote": "Teen Court taught me to advocate for others—now I'm becoming a lawyer.",
+      "image": "/images/story-courtney-teen-court.jpg",
+      "flipImage": false
+    },
+    {
+      "name": "Carly",
+      "program": "Future Track",
+      "tagColor": "purple",
+      "outcome": "Struggling to Thriving",
+      "quote": "I learned that asking for help is the bravest thing you can do.",
+      "image": "/images/story-carly-future-track.jpg",
+      "flipImage": false
+    },
+    {
+      "name": "Marcus",
+      "program": "Teen Court",
+      "tagColor": "green",
+      "outcome": "First Offense to Mentor",
+      "quote": "I mentor young people because someone believed in me first.",
+      "image": "/images/story-marcus-teen-court.jpg",
+      "flipImage": false
+    },
+    {
+      "name": "Frank",
+      "program": "Family Counseling",
+      "tagColor": "blue",
+      "outcome": "Disconnected to United",
+      "quote": "Family therapy helped us find our way back to each other.",
+      "image": "/images/story-frank-family-counseling.jpg",
+      "flipImage": false
+    },
+    {
+      "name": "Mark",
+      "program": "ATE Program",
+      "tagColor": "orange",
+      "outcome": "At Risk to On Track",
+      "quote": "The ATE program gave me the skills to make better choices.",
+      "image": "/images/story-mark-ate-program.jpg",
+      "flipImage": false
+    }
+  ]
+}

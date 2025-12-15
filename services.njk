@@ -1,0 +1,87 @@
+---
+layout: base.njk
+title: Our Services
+description: Reach For Youth offers comprehensive mental health counseling and restorative justice programs for youth and families in Central Indiana.
+---
+
+<!-- HERO SECTION -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container">
+    <div class="hero__content">
+      <h1 id="hero-title" class="hero__title">Our Services</h1>
+      <p class="hero__subtitle">
+        Comprehensive support for youth and families through mental health services and restorative justice programs.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES OVERVIEW -->
+<section class="section" aria-labelledby="services-title">
+  <div class="container">
+    <h2 id="services-title" class="section-title">How We Can <span>Help</span></h2>
+    <p class="section-subtitle">
+      We offer specialized programs designed to support youth and families at every stage.
+    </p>
+
+    <div class="services-grid" style="grid-template-columns: repeat(2, 1fr);">
+      <!-- Mental Health Services -->
+      <article class="service-card">
+        <div class="service-card__icon" aria-hidden="true">
+          <svg><use href="#icon-heart"/></svg>
+        </div>
+        <h3 class="service-card__title">Mental Health Services</h3>
+        <p class="service-card__description">
+          We offer trauma-informed therapy, youth and family counseling, school-based services, and wellness education for youth ages 7–18.
+        </p>
+        <ul class="service-card__list">
+          <li>Individual and family therapy</li>
+          <li>Mental health education programs</li>
+          <li>Substance use intervention</li>
+          <li>Parent empowerment programs</li>
+        </ul>
+        <a href="/services/mental-health/" class="service-card__link">
+          Learn More
+          <svg class="link-arrow"><use href="#icon-arrow-right"/></svg>
+        </a>
+      </article>
+
+      <!-- Restorative Justice -->
+      <article class="service-card">
+        <div class="service-card__icon" aria-hidden="true">
+          <svg><use href="#icon-balance"/></svg>
+        </div>
+        <h3 class="service-card__title">Restorative Justice Services</h3>
+        <p class="service-card__description">
+          From Teen Court to restorative conferences, we create alternative paths to justice that build accountability, repair harm, and empower young people.
+        </p>
+        <ul class="service-card__list">
+          <li>Teen Court (recidivism rate 13–15%)</li>
+          <li>Peer Justice Council</li>
+          <li>ESP School Reintegration</li>
+          <li>Restorative Circles</li>
+        </ul>
+        <a href="/services/restorative-justice/" class="service-card__link">
+          Learn More
+          <svg class="link-arrow"><use href="#icon-arrow-right"/></svg>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="section section--warm" aria-labelledby="cta-title">
+  <div class="container" style="text-align: center;">
+    <h2 id="cta-title" class="section-title">Ready to Get <span>Started?</span></h2>
+    <p style="font-size: 1.25rem; line-height: 1.8; max-width: 700px; margin: 0 auto var(--space-2xl); color: var(--color-text-light);">
+      Contact us today to learn more about our services or to schedule an intake assessment.
+    </p>
+    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: var(--space-md);">
+      <a href="tel:{{ site.offices.central.phone | replace('-', '') }}" class="btn btn--primary">
+        Call {{ site.offices.central.phone }}
+      </a>
+      <a href="/contact/" class="btn btn--secondary">Contact Us</a>
+    </div>
+  </div>
+</section>

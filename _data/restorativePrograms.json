@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "title": "Teen Court",
+      "description": "Youth-led court for first-time offenders where a peer jury determines constructive sentences focused on accountability and education.",
+      "features": [
+        "Operating since 1996",
+        "Peer jury determines sentences",
+        "Focuses on accountability and education",
+        "97% completion rate"
+      ]
+    },
+    {
+      "title": "Peer Justice Council",
+      "description": "Youth advocates provide support, mentorship, and guidance to peers navigating the justice system.",
+      "features": [
+        "Youth advocates supporting peers",
+        "Mentorship and guidance",
+        "Leadership development",
+        "Community service opportunities"
+      ]
+    },
+    {
+      "title": "ESP School Reintegration",
+      "description": "Comprehensive support for students returning to school from expulsion or suspension.",
+      "features": [
+        "Academic and behavioral support",
+        "Family engagement",
+        "Transition planning",
+        "Follow-up support services"
+      ]
+    },
+    {
+      "title": "Restorative Circles",
+      "description": "Community-based conflict resolution bringing together victims, offenders, and supporters.",
+      "features": [
+        "Victim-offender dialogue",
+        "Family group conferencing",
+        "School-based circles",
+        "Community healing processes"
+      ]
+    }
+  ]
+}

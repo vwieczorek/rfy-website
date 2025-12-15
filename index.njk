@@ -1,0 +1,205 @@
+---
+layout: base.njk
+title: Hope, Healing & Second Chances for Youth
+description: Reach For Youth provides mental health counseling, restorative justice programs, and educational support for youth and families in Central Indiana.
+---
+
+<!-- SECTION 1: HERO -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container">
+    <div class="hero__content">
+      <h1 id="hero-title" class="hero__title">
+        We Support Resilient Youth, Empower Families & Create Thriving Communities
+      </h1>
+      <div class="hero__cta">
+        <a href="{{ site.donateUrl }}" class="btn btn--primary" target="_blank" rel="noopener">Donate Now</a>
+        <a href="/volunteer/" class="btn btn--outline-white">Volunteer</a>
+      </div>
+
+      <div class="hero__stats" aria-label="Impact statistics">
+        {% for stat in stats.hero %}
+        <div class="hero__stat">
+          <span class="hero__stat-number">{{ stat.number }}</span>
+          <span class="hero__stat-label">{{ stat.label }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: WHO WE ARE -->
+<section class="section section--warm" aria-labelledby="who-we-are-title">
+  <div class="container">
+    <h2 id="who-we-are-title" class="section-title">Why <span>Reach For Youth?</span></h2>
+
+    <div class="two-column">
+      <div>
+        <p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--space-lg);">
+          Many families and communities are struggling with the challenges of youth mental health, development, and justice system involvement. We solve that.
+        </p>
+        <p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--space-lg);">
+          For over 50 years, Reach For Youth has delivered life-changing services that meet the real needs of youth and families—offering mental health counseling, restorative justice programs, and prevention services.
+        </p>
+        <p style="font-size: 1.125rem; font-weight: 600; margin-bottom: var(--space-md);">
+          Our services are:
+        </p>
+
+        <ul class="feature-list">
+          <li class="feature-list__item">
+            <div class="feature-list__icon">✓</div>
+            <div class="feature-list__content">
+              <h4>Family-Focused</h4>
+              <p>Engaging youth and parents together</p>
+            </div>
+          </li>
+          <li class="feature-list__item">
+            <div class="feature-list__icon">✓</div>
+            <div class="feature-list__content">
+              <h4>Accessible</h4>
+              <p>Removing financial and language barriers</p>
+            </div>
+          </li>
+          <li class="feature-list__item">
+            <div class="feature-list__icon">✓</div>
+            <div class="feature-list__content">
+              <h4>Effective</h4>
+              <p>Focused on healing, growth, and second chances</p>
+            </div>
+          </li>
+        </ul>
+
+        <p style="font-size: 1.125rem; line-height: 1.8; margin-top: var(--space-xl); font-style: italic;">
+          We are here for the youth who are hurting, the parents who feel stuck, and the families who need a path forward.
+        </p>
+      </div>
+
+      <div>
+        <div class="video-placeholder">
+          <div class="video-placeholder__icon">
+            <svg><use href="#icon-play"/></svg>
+          </div>
+          <p class="video-placeholder__text">Brand Video Coming Soon</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: OUR SERVICES -->
+<section class="section" aria-labelledby="services-title">
+  <div class="container">
+    <h2 id="services-title" class="section-title">Transforming Lives Through <span>Mental Health & Restorative Justice</span></h2>
+    <p class="section-subtitle">
+      We offer specialized programs designed to support youth and families at every stage.
+    </p>
+
+    <div class="services-grid" style="grid-template-columns: repeat(2, 1fr);">
+      <!-- Mental Health Services -->
+      <article class="service-card">
+        <div class="service-card__icon" aria-hidden="true">
+          <svg><use href="#icon-heart"/></svg>
+        </div>
+        <h3 class="service-card__title">Mental Health Services</h3>
+        <p class="service-card__description">
+          We offer trauma-informed therapy, youth and family counseling, school-based services, and wellness education for youth ages 7–18. Our services include:
+        </p>
+        <ul class="service-card__list">
+          <li>Individual and family therapy</li>
+          <li>Mental health education (Empower YOUth, R.E.A.C.H.)</li>
+          <li>Substance use intervention</li>
+          <li>Parent empowerment programs</li>
+        </ul>
+        <a href="/services/mental-health/" class="service-card__link">
+          Learn More
+          <svg class="link-arrow"><use href="#icon-arrow-right"/></svg>
+        </a>
+      </article>
+
+      <!-- Restorative Justice -->
+      <article class="service-card">
+        <div class="service-card__icon" aria-hidden="true">
+          <svg><use href="#icon-balance"/></svg>
+        </div>
+        <h3 class="service-card__title">Restorative Justice Services</h3>
+        <p class="service-card__description">
+          From Teen Court to restorative conferences, we create alternative paths to justice that build accountability, repair harm, and empower young people to thrive.
+        </p>
+        <ul class="service-card__list">
+          <li>Teen Court (recidivism rate 13–15%)</li>
+          <li>Peer Justice Council</li>
+          <li>ESP School Reintegration</li>
+          <li>Restorative Circles</li>
+        </ul>
+        <a href="/services/restorative-justice/" class="service-card__link">
+          Learn More
+          <svg class="link-arrow"><use href="#icon-arrow-right"/></svg>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: OUR PROCESS -->
+<section class="section process" aria-labelledby="process-title">
+  <div class="container">
+    <h2 id="process-title" class="process__title section-title">How to Work With Us</h2>
+    <p class="process__subtitle">
+      Whether you're a parent, youth, school, or partner—we make it easy to get help.
+    </p>
+
+    <div class="process__steps">
+      <div class="process__step">
+        <div class="process__step-number">1</div>
+        <h3 class="process__step-title">Reach Out</h3>
+        <p class="process__step-description">Contact us online or by phone.</p>
+      </div>
+
+      <div class="process__step">
+        <div class="process__step-number">2</div>
+        <h3 class="process__step-title">Assessment</h3>
+        <p class="process__step-description">We listen, learn, and assess your needs.</p>
+      </div>
+
+      <div class="process__step">
+        <div class="process__step-number">3</div>
+        <h3 class="process__step-title">Connection</h3>
+        <p class="process__step-description">You're matched with the right services and support.</p>
+      </div>
+
+      <div class="process__step">
+        <div class="process__step-number">4</div>
+        <h3 class="process__step-title">Ongoing Support</h3>
+        <p class="process__step-description">We walk with you on the journey—together.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: EVENTS -->
+{% if event.visible %}
+<section class="section events-section" aria-labelledby="events-title">
+  <div class="container">
+    <h2 id="events-title" class="events-section__title section-title">Don't Miss What's Next</h2>
+
+    <div class="event-card">
+      <h3 class="event-card__name">{{ event.name }}</h3>
+      <p class="event-card__date">{{ event.date }}</p>
+      <p class="event-card__location">{{ event.location }}</p>
+      <p class="event-card__description">{{ event.description }}</p>
+      <a href="/events/" class="btn btn--outline-white">Stay Informed</a>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- SECTION 6: VOLUNTEER -->
+<section class="section section--warm" aria-labelledby="volunteer-title">
+  <div class="container" style="text-align: center;">
+    <h2 id="volunteer-title" class="section-title">Be Part of the <span>Solution</span></h2>
+    <p style="font-size: 1.25rem; line-height: 1.8; max-width: 700px; margin: 0 auto var(--space-2xl); color: var(--color-text-light);">
+      Volunteers are the heartbeat of our work. Whether mentoring youth, helping at events, or supporting behind the scenes, your time and talents make a real difference.
+    </p>
+    <a href="/volunteer/" class="btn btn--primary">Learn More About Volunteering</a>
+  </div>
+</section>

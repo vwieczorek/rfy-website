@@ -1,0 +1,105 @@
+---
+layout: base.njk
+title: Volunteer With Us
+description: Be part of the solution. Your time and talents make a real difference in the lives of young people at Reach For Youth.
+---
+
+<!-- HERO SECTION -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container">
+    <div class="hero__content">
+      <h1 id="hero-title" class="hero__title">Volunteer With Us</h1>
+      <p class="hero__subtitle">
+        Be part of the solution. Your time and talents make a real difference in the lives of young people.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO SECTION -->
+<section class="section section--warm" aria-labelledby="intro-title">
+  <div class="container">
+    <p style="font-size: 1.25rem; line-height: 1.8; max-width: 800px; margin: 0 auto; text-align: center; color: var(--color-text-light);">
+      Volunteers are the heartbeat of Reach For Youth. Whether you have a few hours a month or want to make a deeper commitment, there's a place for you on our team.
+    </p>
+  </div>
+</section>
+
+<!-- OPPORTUNITIES SECTION -->
+<section class="section" aria-labelledby="opportunities-title">
+  <div class="container">
+    <h2 id="opportunities-title" class="section-title">Volunteer <span>Opportunities</span></h2>
+    <p class="section-subtitle">
+      Choose the role that fits your schedule, skills, and passion for making a difference.
+    </p>
+
+    <div class="opportunities-grid">
+      {% for opportunity in volunteerOpportunities.items %}
+      <article class="opportunity-card">
+        <h3 class="opportunity-card__title">{{ opportunity.title }}</h3>
+        <ul class="opportunity-card__list">
+          {% for item in opportunity.details %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- REQUIREMENTS SECTION -->
+<section class="section section--warm" aria-labelledby="requirements-title">
+  <div class="container">
+    <div class="requirements-box">
+      <h3 id="requirements-title">Volunteer Requirements</h3>
+      <ul>
+        <li>Must be 18 or older (21+ for some roles)</li>
+        <li>Background check required</li>
+        <li>Training provided for all positions</li>
+        <li>Commitment varies by role</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT STATS SECTION -->
+<section class="section impact" aria-labelledby="impact-title">
+  <div class="container">
+    <h2 id="impact-title" class="impact__title section-title">Volunteer <span>Impact</span></h2>
+
+    <div class="impact__grid">
+      {% for stat in stats.volunteer %}
+      <div class="impact__item">
+        <span class="impact__number">{{ stat.number }}</span>
+        <span class="impact__label">{{ stat.label }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATION SECTION -->
+<section class="section application-cta" aria-labelledby="application-title">
+  <div class="container">
+    <h2 id="application-title" class="application-cta__title">Ready to Get Started?</h2>
+    <p class="application-cta__text">
+      Complete our volunteer application to begin the process.
+    </p>
+    <a href="{{ site.volunteerFormUrl }}" class="btn btn--primary" target="_blank" rel="noopener">Apply Now</a>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="section" aria-labelledby="contact-title">
+  <div class="container">
+    <div class="contact-box">
+      <h3 id="contact-title">Questions About Volunteering?</h3>
+      <p>Contact our Volunteer Coordinator</p>
+      <p>
+        <a href="tel:{{ site.offices.central.phone | replace('-', '') }}">{{ site.offices.central.phone }}</a><br>
+        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,160 @@
+---
+layout: base.njk
+title: Events
+description: Join us at our upcoming events and be part of the Reach For Youth community.
+---
+
+<!-- HERO SECTION -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container">
+    <div class="hero__content">
+      <h1 id="hero-title" class="hero__title">Events</h1>
+      <p class="hero__subtitle">
+        Join us at our upcoming events and be part of the Reach For Youth community.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED EVENT -->
+{% if event.visible %}
+<section class="section" aria-labelledby="featured-event-title">
+  <div class="container">
+    <div class="featured-event">
+      <span class="featured-event__badge">Featured Event</span>
+
+      <h2 id="featured-event-title" class="featured-event__name">{{ event.name }}</h2>
+
+      <div class="featured-event__meta">
+        <div class="featured-event__meta-item">
+          <span class="featured-event__meta-label">Date</span>
+          <span class="featured-event__meta-value">{{ event.date }}</span>
+        </div>
+        <div class="featured-event__meta-item">
+          <span class="featured-event__meta-label">Time</span>
+          <span class="featured-event__meta-value">Morning Event</span>
+        </div>
+        <div class="featured-event__meta-item">
+          <span class="featured-event__meta-label">Location</span>
+          <span class="featured-event__meta-value">{{ event.location }}</span>
+        </div>
+        <div class="featured-event__meta-item">
+          <span class="featured-event__meta-label">Status</span>
+          <span class="featured-event__meta-value">Save the Date!</span>
+        </div>
+      </div>
+
+      <div class="featured-event__description">
+        <p style="margin-bottom: var(--space-lg);">
+          {{ event.description }}
+        </p>
+      </div>
+
+      <div class="featured-event__highlights">
+        <h4>Each year's event features:</h4>
+        <ul>
+          <li>Keynote speaker sharing their journey of transformation</li>
+          <li>Stories from youth and families we serve</li>
+          <li>Networking with community leaders</li>
+          <li>Delicious breakfast at a beautiful Indianapolis venue</li>
+        </ul>
+      </div>
+
+      <div class="featured-event__ctas">
+        <a href="mailto:{{ site.email }}?subject=Rise%20%26%20Shine%202026%20Interest" class="btn btn--primary">Get Notified</a>
+        <a href="mailto:{{ site.email }}?subject=Rise%20%26%20Shine%202026%20Sponsorship%20Inquiry" class="btn btn--secondary">Sponsorship Interest</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- SPONSORSHIP OPPORTUNITIES -->
+<section class="section section--warm" aria-labelledby="sponsorship-title">
+  <div class="container">
+    <h2 id="sponsorship-title" class="section-title">Sponsorship <span>Opportunities</span></h2>
+    <p class="section-subtitle">
+      Partner with us to make a lasting impact on Central Indiana youth.
+    </p>
+
+    <div class="sponsorship-levels">
+      {% for level in sponsorshipLevels.items %}
+      <div class="sponsorship-level">
+        <h3 class="sponsorship-level__name">{{ level.name }}</h3>
+        <span class="sponsorship-level__amount">${{ level.amount }}</span>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="sponsorship-contact">
+      <p>
+        For sponsorship inquiries, contact us at
+        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PAST EVENTS -->
+<section class="section" aria-labelledby="past-events-title">
+  <div class="container">
+    <h2 id="past-events-title" class="section-title">Past <span>Events</span></h2>
+
+    <div class="past-events">
+      <p>
+        Photos and recaps from past Rise & Shine events are available. Each year, we celebrate the incredible transformations happening in our community and the dedicated supporters who make it possible.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- OTHER WAYS TO SUPPORT -->
+<section class="section section--warm" aria-labelledby="support-title">
+  <div class="container">
+    <h2 id="support-title" class="section-title">Other Ways to <span>Stay Connected</span></h2>
+    <p class="section-subtitle">
+      When events aren't in season, there are still many ways to support and engage with our mission.
+    </p>
+
+    <div class="support-grid">
+      <div class="support-card">
+        <div class="support-card__icon" aria-hidden="true">✉️</div>
+        <h4>Newsletter Signup</h4>
+        <p>Stay informed about upcoming events, program updates, and inspiring stories from the youth we serve.</p>
+        <a href="mailto:{{ site.email }}?subject=Newsletter%20Signup" class="btn btn--secondary btn--small">Sign Up</a>
+      </div>
+
+      <div class="support-card">
+        <div class="support-card__icon" aria-hidden="true">
+          <svg><use href="#icon-user"/></svg>
+        </div>
+        <h4>Follow on Social Media</h4>
+        <p>Connect with us on Facebook, Instagram, LinkedIn, and more to see our work in action.</p>
+        <a href="#footer-social" class="btn btn--secondary btn--small">Connect</a>
+      </div>
+
+      <div class="support-card">
+        <div class="support-card__icon" aria-hidden="true">
+          <svg><use href="#icon-heart"/></svg>
+        </div>
+        <h4>Volunteer Opportunities</h4>
+        <p>Make a direct impact by volunteering with our programs and supporting youth in your community.</p>
+        <a href="/volunteer/" class="btn btn--secondary btn--small">Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA: STAY CONNECTED -->
+<section class="section" aria-labelledby="cta-title">
+  <div class="container" style="text-align: center;">
+    <h2 id="cta-title" class="section-title">Stay <span>Connected</span></h2>
+    <p style="font-size: 1.25rem; line-height: 1.8; max-width: 700px; margin: 0 auto var(--space-2xl); color: var(--color-text-light);">
+      Don't miss out on future events and opportunities to support youth in Central Indiana. Sign up for updates and follow us on social media.
+    </p>
+    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: var(--space-md);">
+      <a href="mailto:{{ site.email }}?subject=Event%20Updates%20Signup" class="btn btn--primary">Sign Up for Updates</a>
+      <a href="{{ site.donateUrl }}" class="btn btn--secondary" target="_blank" rel="noopener">Make a Donation</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,84 @@
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <!-- Crisis Disclaimer -->
+    <div class="footer__disclaimer">
+      <p class="footer__disclaimer-title">Emergency Resources</p>
+      <p>If this is a medical or psychiatric emergency, call 911. If our office is not open and you have an emergency, please contact any of the following resources:</p>
+      <ul class="footer__crisis-lines">
+        <li>{{ site.crisisLines.marionCrisis.name }}: <a href="tel:{{ site.crisisLines.marionCrisis.phone | replace('-', '') }}">{{ site.crisisLines.marionCrisis.phone }}</a></li>
+        <li>{{ site.crisisLines.marionHelp.name }}: <a href="tel:{{ site.crisisLines.marionHelp.phone | replace('-', '') }}">{{ site.crisisLines.marionHelp.phone }}</a></li>
+        <li>{{ site.crisisLines.johnsonHelp.name }}: <a href="tel:{{ site.crisisLines.johnsonHelp.phone | replace('-', '') }}">{{ site.crisisLines.johnsonHelp.phone }}</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">
+          <img src="/images/logo.png" alt="{{ site.name }}" class="logo__img">
+        </a>
+        <p class="footer__description">
+          Reach For Youth is a Youth Service Bureau committed to supporting,
+          representing, and protecting the rights of young people in Central Indiana.
+          For over 50 years, we've helped youth and families find hope and healing.
+        </p>
+        <div class="footer__social" aria-label="Social media links">
+          <a href="{{ site.social.facebook }}" aria-label="Facebook">
+            <svg aria-hidden="true"><use href="#icon-facebook"/></svg>
+          </a>
+          <a href="{{ site.social.instagram }}" aria-label="Instagram">
+            <svg aria-hidden="true"><use href="#icon-instagram"/></svg>
+          </a>
+          <a href="{{ site.social.linkedin }}" aria-label="LinkedIn">
+            <svg aria-hidden="true"><use href="#icon-linkedin"/></svg>
+          </a>
+          <a href="{{ site.social.youtube }}" aria-label="YouTube">
+            <svg aria-hidden="true"><use href="#icon-youtube"/></svg>
+          </a>
+          <a href="{{ site.social.twitter }}" aria-label="X (Twitter)">
+            <svg aria-hidden="true"><use href="#icon-x"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__column">
+        <h4>Services</h4>
+        <ul class="footer__links">
+          <li><a href="/services/mental-health/">Mental Health</a></li>
+          <li><a href="/services/restorative-justice/">Restorative Justice</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__column">
+        <h4>About Us</h4>
+        <ul class="footer__links">
+          <li><a href="/about/">Our Mission</a></li>
+          <li><a href="/success-stories/">Our Success Stories</a></li>
+          <li><a href="/volunteer/">Volunteer</a></li>
+          <li><a href="/contact/">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__column">
+        <h4>Contact</h4>
+        <ul class="footer__links">
+          <li><strong>{{ site.offices.central.name }}</strong></li>
+          <li>{{ site.offices.central.address }}</li>
+          <li>{{ site.offices.central.city }}, {{ site.offices.central.state }} {{ site.offices.central.zip }}</li>
+          <li><a href="tel:{{ site.offices.central.phone | replace('-', '') }}">{{ site.offices.central.phone }}</a></li>
+          <li style="margin-top: var(--space-md);"><strong>{{ site.offices.southside.name }}</strong></li>
+          <li>{{ site.offices.southside.address }}</li>
+          <li>{{ site.offices.southside.city }}, {{ site.offices.southside.state }} {{ site.offices.southside.zip }}</li>
+          <li><a href="tel:{{ site.offices.southside.phone | replace('-', '') }}">{{ site.offices.southside.phone }}</a></li>
+          <li style="margin-top: var(--space-md);"><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; {{ page.date.getFullYear() or "2025" }} {{ site.name }}, Inc. All rights reserved. 501(c)(3) nonprofit organization.</p>
+      <div class="footer__legal">
+        <span>501(c)(3) Nonprofit</span>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,119 @@
+---
+layout: base.njk
+title: Stories of Transformation
+description: Real stories from real families whose lives have been changed through support, healing, and second chances at Reach For Youth.
+---
+
+<!-- HERO SECTION -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container">
+    <div class="hero__content">
+      <h1 id="hero-title" class="hero__title">
+        Stories of Transformation
+      </h1>
+      <p class="hero__subtitle">
+        Real stories from real families whose lives have been changed through support, healing, and second chances.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED STORY -->
+{% if featuredStory %}
+<section class="section section--warm" aria-labelledby="featured-title">
+  <div class="container">
+    <div class="featured-story">
+      <div class="featured-story__image">
+        <img src="{{ featuredStory.image }}" alt="{{ featuredStory.imageAlt }}">
+      </div>
+      <div class="featured-story__content">
+        <p class="featured-story__quote">{{ featuredStory.quote }}</p>
+        <p class="featured-story__text">
+          {{ featuredStory.text }}
+        </p>
+        <p class="featured-story__attribution">
+          {{ featuredStory.attribution }} — <span>{{ featuredStory.program }}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- STORIES GRID -->
+<section class="section" aria-labelledby="stories-title">
+  <div class="container">
+    <h2 id="stories-title" class="section-title">Every Story <span>Matters</span></h2>
+
+    <div class="stories-grid">
+      {% for story in stories.items %}
+      <article class="story-card">
+        <div class="story-card__image">
+          <span class="story-card__tag story-card__tag--{{ story.tagColor }}">{{ story.program }}</span>
+          <img src="{{ story.image }}" alt="{{ story.name }}"{% if story.flipImage %} class="flip-horizontal"{% endif %}>
+        </div>
+        <div class="story-card__content">
+          <h3 class="story-card__name">{{ story.name }}</h3>
+          <p class="story-card__outcome">{{ story.outcome }}</p>
+          <p class="story-card__quote">
+            "{{ story.quote }}"
+          </p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS CAROUSEL -->
+<section class="section testimonials" aria-labelledby="testimonials-title">
+  <div class="container">
+    <h2 id="testimonials-title" class="testimonials__title section-title">Voices from Our <span style="color: var(--color-accent-light);">Community</span></h2>
+  </div>
+
+  <div class="testimonials__wrapper">
+    <button class="testimonials__nav testimonials__nav--prev" aria-label="Previous testimonials">
+      <svg style="transform: rotate(180deg);"><use href="#icon-arrow-right"/></svg>
+    </button>
+
+    <div class="testimonials__track">
+      {% for testimonial in testimonials.items %}
+      <div class="testimonial-card">
+        <p class="testimonial-card__quote">
+          {{ testimonial.quote }}
+        </p>
+        <div class="testimonial-card__attribution">
+          <div class="testimonial-card__avatar">{{ testimonial.initial }}</div>
+          <div>
+            <div class="testimonial-card__name">{{ testimonial.name }}</div>
+            <div class="testimonial-card__role">{{ testimonial.role }}</div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <button class="testimonials__nav testimonials__nav--next" aria-label="Next testimonials">
+      <svg><use href="#icon-arrow-right"/></svg>
+    </button>
+
+    <div class="testimonials__hint">
+      <svg><use href="#icon-arrow-right"/></svg>
+      Swipe to see more testimonials
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="section cta-section" aria-labelledby="cta-title">
+  <div class="container">
+    <h2 id="cta-title" class="cta-section__title">Your Story <span>Matters</span></h2>
+    <p class="cta-section__text">
+      If Reach For Youth has made a difference in your life, we'd love to hear from you.
+    </p>
+    <div class="cta-section__buttons">
+      <a href="mailto:{{ site.email }}?subject=My RFY Story" class="btn btn--primary">Share Your Story</a>
+      <a href="{{ site.donateUrl }}" class="btn btn--secondary" target="_blank" rel="noopener">Support Our Mission</a>
+    </div>
+  </div>
+</section>

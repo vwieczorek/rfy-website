@@ -1,0 +1,44 @@
+{
+  "hero": [
+    {
+      "number": "848+",
+      "label": "Youth served in 2024"
+    },
+    {
+      "number": "2,600+",
+      "label": "Clinical sessions delivered"
+    },
+    {
+      "number": "97%",
+      "label": "Teen Court completion rate"
+    }
+  ],
+  "impact": [
+    {
+      "number": "50+",
+      "label": "Years serving Central Indiana"
+    },
+    {
+      "number": "13-15%",
+      "label": "Teen Court recidivism rate"
+    },
+    {
+      "number": "7-18",
+      "label": "Age range of youth served"
+    }
+  ],
+  "volunteer": [
+    {
+      "number": "200+",
+      "label": "Volunteers annually"
+    },
+    {
+      "number": "5,000+",
+      "label": "Volunteer hours"
+    },
+    {
+      "number": "800+",
+      "label": "Youth served"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "amount": "25",
+      "description": "Provides a counseling resource kit for one youth"
+    },
+    {
+      "amount": "75",
+      "description": "Funds one therapy session for a young person"
+    },
+    {
+      "amount": "150",
+      "description": "Supports a family through a month of services"
+    },
+    {
+      "amount": "500",
+      "description": "Sponsors a youth through Teen Court program"
+    }
+  ]
+}

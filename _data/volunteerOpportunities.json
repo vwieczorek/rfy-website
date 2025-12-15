@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "title": "Teen Court Juror",
+      "details": [
+        "Serve on youth-led jury panels",
+        "Determine constructive sentences",
+        "Evening commitment (2-3 hours)",
+        "Training provided"
+      ]
+    },
+    {
+      "title": "Teen Court Attorney",
+      "details": [
+        "Represent youth in Teen Court hearings",
+        "Legal background helpful but not required",
+        "Evening commitment",
+        "Comprehensive training"
+      ]
+    },
+    {
+      "title": "Mentor",
+      "details": [
+        "One-on-one support for youth",
+        "Weekly meetings",
+        "6-month minimum commitment",
+        "Background check required"
+      ]
+    },
+    {
+      "title": "Event Support",
+      "details": [
+        "Help at Rise & Shine breakfast",
+        "Community outreach events",
+        "Flexible schedule",
+        "Great for groups"
+      ]
+    }
+  ]
+}

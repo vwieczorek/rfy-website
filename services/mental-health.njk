@@ -1,0 +1,148 @@
+---
+layout: base.njk
+title: Mental Health Services
+description: Trauma-informed therapy and counseling for youth ages 7-18 and their families at Reach For Youth.
+---
+
+<!-- HERO SECTION -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container">
+    <div class="hero__content">
+      <h1 id="hero-title" class="hero__title">Mental Health Services</h1>
+      <p class="hero__subtitle">
+        Trauma-informed therapy and counseling for youth ages 7-18 and their families.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW SECTION -->
+<section class="section section--warm" aria-labelledby="overview-title">
+  <div class="container">
+    <h2 id="overview-title" class="section-title">Compassionate Mental Health Care for Youth and Families</h2>
+    <p style="font-size: 1.125rem; line-height: 1.8; max-width: 800px; margin: 0 auto; text-align: center; color: var(--color-text-light);">
+      We offer comprehensive mental health services designed to meet the unique needs of young people and their families. Our licensed clinicians provide evidence-based treatment in a safe, supportive environment.
+    </p>
+  </div>
+</section>
+
+<!-- SERVICES GRID -->
+<section class="section" aria-labelledby="services-title">
+  <div class="container">
+    <h2 id="services-title" class="section-title">Our Mental Health <span>Services</span></h2>
+
+    <div class="services-grid">
+      {% for service in mentalHealthServices.items %}
+      <article class="service-card">
+        <div class="service-card__icon" aria-hidden="true">
+          <svg><use href="#{{ service.icon }}"/></svg>
+        </div>
+        <h3 class="service-card__title">{{ service.title }}</h3>
+        <p class="service-card__description">
+          {{ service.description }}
+        </p>
+        <ul class="service-card__list">
+          {% for item in service.items %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE SERVE SECTION -->
+<section class="section section--cool" aria-labelledby="who-we-serve-title">
+  <div class="container">
+    <h2 id="who-we-serve-title" class="section-title">Who We <span>Serve</span></h2>
+
+    <div class="who-we-serve-grid">
+      <div class="serve-card">
+        <div class="serve-card__icon" aria-hidden="true">
+          <svg><use href="#icon-user"/></svg>
+        </div>
+        <h3 class="serve-card__title">Youth Ages 7-18</h3>
+        <p class="serve-card__description">
+          Children and adolescents experiencing mental health challenges, trauma, or behavioral health concerns.
+        </p>
+      </div>
+
+      <div class="serve-card">
+        <div class="serve-card__icon" aria-hidden="true">
+          <svg><use href="#icon-user"/></svg>
+        </div>
+        <h3 class="serve-card__title">Parents and Caregivers</h3>
+        <p class="serve-card__description">
+          Support and guidance for families navigating the complexities of youth mental health.
+        </p>
+      </div>
+
+      <div class="serve-card">
+        <div class="serve-card__icon" aria-hidden="true">
+          <svg><use href="#icon-help"/></svg>
+        </div>
+        <h3 class="serve-card__title">Families in Crisis</h3>
+        <p class="serve-card__description">
+          Immediate support and intervention for families experiencing mental health emergencies.
+        </p>
+      </div>
+
+      <div class="serve-card">
+        <div class="serve-card__icon" aria-hidden="true">
+          <svg><use href="#icon-book"/></svg>
+        </div>
+        <h3 class="serve-card__title">Schools & Community Partners</h3>
+        <p class="serve-card__description">
+          Collaborative partnerships to bring mental health services directly to students and communities.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSURANCE & FEES SECTION -->
+<section class="section section--warm" aria-labelledby="insurance-title">
+  <div class="container">
+    <h2 id="insurance-title" class="section-title">Insurance & <span>Fees</span></h2>
+    <p style="font-size: 1.125rem; line-height: 1.8; max-width: 700px; margin: 0 auto; text-align: center; color: var(--color-text-light);">
+      We accept most major insurance plans and offer sliding scale fees to ensure services are accessible to all families. Financial barriers should never prevent youth from receiving the care they need.
+    </p>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="section cta-section" aria-labelledby="cta-title">
+  <div class="container">
+    <h2 id="cta-title" class="cta-section__title">Ready to Take the First Step?</h2>
+    <p class="cta-section__text">
+      Our team is here to help. Reach out today to learn more about our mental health services and how we can support your family.
+    </p>
+
+    <div class="cta-section__contact">
+      <div class="contact-item">
+        <div class="contact-item__label">Phone</div>
+        <div class="contact-item__value">
+          <a href="tel:{{ site.offices.central.phone | replace('-', '') }}">{{ site.offices.central.phone }}</a>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-item__label">Email</div>
+        <div class="contact-item__value">
+          <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-section__buttons">
+      <a href="tel:{{ site.offices.central.phone | replace('-', '') }}" class="btn btn--primary">
+        <svg style="width: 20px; height: 20px;"><use href="#icon-phone"/></svg>
+        Call Now
+      </a>
+      <a href="mailto:{{ site.email }}" class="btn btn--secondary">
+        Email Us
+      </a>
+    </div>
+  </div>
+</section>

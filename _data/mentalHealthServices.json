@@ -1,0 +1,48 @@
+{
+  "items": [
+    {
+      "title": "Child, Adolescent & Family Services",
+      "icon": "icon-user",
+      "description": "Comprehensive therapeutic support tailored to the developmental needs of children, adolescents, and their families.",
+      "items": [
+        "Individual therapy",
+        "Family counseling",
+        "Play therapy for younger children",
+        "Adolescent-focused treatment"
+      ]
+    },
+    {
+      "title": "Specialized Treatment",
+      "icon": "icon-heart",
+      "description": "Evidence-based approaches for complex mental health challenges with trauma-informed care at the foundation.",
+      "items": [
+        "Trauma-informed care",
+        "Anxiety and depression treatment",
+        "Behavioral health services",
+        "Crisis intervention"
+      ]
+    },
+    {
+      "title": "Programs & Groups",
+      "icon": "icon-user",
+      "description": "Structured programs and group support to build resilience, coping skills, and healthy relationships.",
+      "items": [
+        "Empower YOUth program",
+        "R.E.A.C.H. curriculum",
+        "Parent empowerment groups",
+        "Substance use prevention"
+      ]
+    },
+    {
+      "title": "Education & Training",
+      "icon": "icon-book",
+      "description": "Mental health education and support services integrated into schools and community settings.",
+      "items": [
+        "School-based services",
+        "Teacher and staff training",
+        "Mental health education",
+        "Prevention programs"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+---
+layout: base.njk
+title: Support Our Mission
+description: Your gift helps youth and families find hope, healing, and second chances. Donate to Reach For Youth today.
+---
+
+<!-- Hero Section -->
+<section class="donate-hero" aria-labelledby="hero-title">
+  <div class="container">
+    <h1 id="hero-title" class="donate-hero__title">Support Our Mission</h1>
+    <p class="donate-hero__subtitle">
+      Your gift helps youth and families find hope, healing, and second chances.
+    </p>
+  </div>
+</section>
+
+<!-- Impact Section -->
+<section class="section section--warm" aria-labelledby="impact-title">
+  <div class="container">
+    <h2 id="impact-title" class="section-title">Your Impact</h2>
+    <p class="section-subtitle">
+      Every dollar makes a real difference. Here's how your gift helps:
+    </p>
+
+    <div class="impact-grid">
+      {% for level in donationImpact.items %}
+      <div class="impact-card">
+        <span class="impact-card__amount">${{ level.amount }}</span>
+        <p class="impact-card__description">
+          {{ level.description }}
+        </p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Ways to Give Section -->
+<section class="section" aria-labelledby="ways-title">
+  <div class="container">
+    <div class="ways-to-give">
+      <h2 id="ways-title" class="section-title">Ways to Give</h2>
+
+      <div class="ways-to-give__cta">
+        <p class="ways-to-give__text">
+          Ready to make a difference? Click the button below to be redirected to our secure donation portal powered by Bloomerang.
+        </p>
+        <a href="{{ site.donateUrl }}" class="btn btn--primary btn--large" target="_blank" rel="noopener">Donate Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Other Ways to Give -->
+<section class="section section--cool" aria-labelledby="other-ways-title">
+  <div class="container">
+    <h2 id="other-ways-title" class="section-title">Other Ways to Give</h2>
+    <p class="section-subtitle">
+      There are many ways to make a lasting impact in the lives of young people.
+    </p>
+
+    <div class="other-ways">
+      <div class="other-way">
+        <h3 class="other-way__title">Monthly Giving</h3>
+        <p class="other-way__text">
+          Join our sustaining donor community with a recurring monthly gift. Your consistent support helps us plan ahead and provides steady support for youth and families all year long.
+        </p>
+      </div>
+
+      <div class="other-way">
+        <h3 class="other-way__title">Planned Giving / Estate Gifts</h3>
+        <p class="other-way__text">
+          Include Reach For Youth in your will, trust, or estate plans. Create a lasting legacy that supports future generations of youth and families in need.
+        </p>
+      </div>
+
+      <div class="other-way">
+        <h3 class="other-way__title">Corporate Matching</h3>
+        <p class="other-way__text">
+          Many employers match charitable donations dollar-for-dollar. Check if your company participates and double your impact with a matching gift.
+        </p>
+      </div>
+
+      <div class="other-way">
+        <h3 class="other-way__title">In-Kind Donations</h3>
+        <p class="other-way__text">
+          Support our programs with donations of goods or services such as office supplies, program materials, or professional services.
+        </p>
+      </div>
+
+      <div class="other-way">
+        <h3 class="other-way__title">Vehicle Donations</h3>
+        <p class="other-way__text">
+          Donate your car, truck, or other vehicle to Reach For Youth. It's a simple way to support our mission while receiving a tax deduction.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="section" aria-labelledby="contact-title">
+  <div class="container">
+    <div class="contact-card">
+      <h2 id="contact-title" class="contact-card__title">Questions About Giving?</h2>
+      <div class="contact-card__info">
+        <p>We're here to help answer any questions about supporting Reach For Youth.</p>
+
+        <strong>Contact:</strong>
+        <p>Melissa Baker</p>
+        <p>Director of Admin, Marketing & Fundraising</p>
+
+        <strong>Phone:</strong>
+        <p><a href="tel:{{ site.offices.central.phone | replace('-', '') }}">{{ site.offices.central.phone }}</a></p>
+
+        <strong>Email:</strong>
+        <p><a href="mailto:mbaker@reachforyouth.org">mbaker@reachforyouth.org</a></p>
+      </div>
+    </div>
+  </div>
+</section>

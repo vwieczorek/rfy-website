@@ -1,0 +1,123 @@
+---
+layout: base.njk
+title: Restorative Justice Services
+description: Alternative paths to justice that build accountability, repair harm, and empower young people at Reach For Youth.
+---
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container">
+    <div class="hero__content">
+      <h1 id="hero-title" class="hero__title">
+        Restorative Justice Services
+      </h1>
+      <p class="hero__subtitle">
+        Alternative paths to justice that build accountability, repair harm, and empower young people.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="section section--warm" aria-labelledby="overview-title">
+  <div class="container">
+    <h2 id="overview-title" class="section-title">A Better Path <span>Forward</span></h2>
+    <p class="section-subtitle" style="max-width: 800px;">
+      Our restorative justice programs offer youth an opportunity to take responsibility for their actions, make amends, and develop the skills needed to make better choices. With a recidivism rate of just 13-15%, our programs are proven to work.
+    </p>
+  </div>
+</section>
+
+<!-- KEY STAT CALLOUT -->
+<section class="stat-callout" aria-labelledby="stat-title">
+  <div class="container">
+    <div class="stat-callout__number">13-15%</div>
+    <div class="stat-callout__label" id="stat-title">Recidivism Rate</div>
+    <div class="stat-callout__context">
+      Compared to 50%+ for traditional juvenile justice
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS GRID -->
+<section class="section" aria-labelledby="programs-title">
+  <div class="container">
+    <h2 id="programs-title" class="section-title">Our <span>Programs</span></h2>
+    <p class="section-subtitle">
+      We offer a range of restorative justice services tailored to the needs of youth, families, schools, and courts.
+    </p>
+
+    <div class="programs-grid">
+      {% for program in restorativePrograms.items %}
+      <article class="program-card">
+        <h3 class="program-card__title">{{ program.title }}</h3>
+        <p style="color: var(--color-text-light); margin-bottom: var(--space-md);">
+          {{ program.description }}
+        </p>
+        <ul class="program-card__list">
+          {% for item in program.features %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section process" aria-labelledby="process-title">
+  <div class="container">
+    <h2 id="process-title" class="section-title">How It Works</h2>
+    <p class="section-subtitle">
+      Our restorative justice process is designed to be simple, supportive, and effective.
+    </p>
+
+    <div class="process__steps">
+      <div class="process__step">
+        <div class="process__step-number">1</div>
+        <h3 class="process__step-title">Referral</h3>
+        <p class="process__step-description">Received from court, school, or family</p>
+      </div>
+
+      <div class="process__step">
+        <div class="process__step-number">2</div>
+        <h3 class="process__step-title">Assessment</h3>
+        <p class="process__step-description">Assessment and intake meeting</p>
+      </div>
+
+      <div class="process__step">
+        <div class="process__step-number">3</div>
+        <h3 class="process__step-title">Program Participation</h3>
+        <p class="process__step-description">Youth participates in appropriate program</p>
+      </div>
+
+      <div class="process__step">
+        <div class="process__step-number">4</div>
+        <h3 class="process__step-title">Completion</h3>
+        <p class="process__step-description">Completion and case closure</p>
+      </div>
+
+      <div class="process__step">
+        <div class="process__step-number">5</div>
+        <h3 class="process__step-title">Follow-Up</h3>
+        <p class="process__step-description">Follow-up support as needed</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section cta-section" aria-labelledby="cta-title">
+  <div class="container">
+    <h2 id="cta-title" class="cta-section__title">Learn More About Referrals</h2>
+    <p class="cta-section__text">
+      For courts, schools, and families seeking restorative justice services for youth.
+    </p>
+    <a href="tel:{{ site.offices.central.phone | replace('-', '') }}" class="cta-section__phone">{{ site.offices.central.phone }}</a>
+    <div class="cta-section__buttons">
+      <a href="tel:{{ site.offices.central.phone | replace('-', '') }}" class="btn btn--primary">Call Now</a>
+      <a href="/contact/" class="btn btn--secondary">Make a Referral</a>
+    </div>
+  </div>
+</section>
