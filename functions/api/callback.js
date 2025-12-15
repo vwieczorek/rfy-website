@@ -1,68 +1,77 @@
-// GitHub OAuth callback handler for Decap CMS
-// Exchanges code for token and sends back to CMS
-
-export async function onRequest(context) {
-  const { request, env } = context;
-  const url = new URL(request.url);
+// OAuth callback - exchanges code for token
+export async function onRequestGet(context) {
+  const url = new URL(context.request.url);
   const code = url.searchParams.get('code');
 
   if (!code) {
     return new Response('Missing code parameter', { status: 400 });
   }
 
-  try {
-    // Exchange code for access token
-    const tokenResponse = await fetch('https://github.com/login/oauth/access_token', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        client_id: env.GITHUB_CLIENT_ID,
-        client_secret: env.GITHUB_CLIENT_SECRET,
-        code: code,
-      }),
-    });
+  const clientId = context.env.GITHUB_CLIENT_ID;
+  const clientSecret = context.env.GITHUB_CLIENT_SECRET;
 
-    const tokenData = await tokenResponse.json();
+  if (!clientId || !clientSecret) {
+    return new Response('OAuth not configured', { status: 500 });
+  }
 
-    if (tokenData.error) {
-      return new Response(`OAuth error: ${tokenData.error_description}`, { status: 400 });
-    }
+  // Exchange code for access token
+  const tokenResponse = await fetch('https://github.com/login/oauth/access_token', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      client_id: clientId,
+      client_secret: clientSecret,
+      code: code,
+    }),
+  });
 
-    // Return HTML that posts the token back to the CMS
-    const html = `
-<!DOCTYPE html>
+  const tokenData = await tokenResponse.json();
+
+  if (tokenData.error) {
+    return new Response(`OAuth error: ${tokenData.error_description || tokenData.error}`, { status: 400 });
+  }
+
+  // Safely encode the token data for embedding in HTML
+  const messageData = JSON.stringify({
+    token: tokenData.access_token,
+    provider: 'github'
+  });
+
+  // Base64 encode to avoid any escaping issues
+  const encodedData = btoa(messageData);
+
+  // Return HTML that posts the token back to the CMS
+  const html = `<!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>Authentication Complete</title>
+  <title>Authenticating...</title>
 </head>
 <body>
   <script>
     (function() {
-      function receiveMessage(e) {
-        console.log("receiveMessage %o", e);
-        window.opener.postMessage(
-          'authorization:github:success:${JSON.stringify({ token: tokenData.access_token, provider: 'github' })}',
-          e.origin
-        );
-        window.close();
+      try {
+        var data = JSON.parse(atob("${encodedData}"));
+        var message = "authorization:github:success:" + JSON.stringify(data);
+
+        if (window.opener) {
+          window.opener.postMessage(message, "*");
+          setTimeout(function() { window.close(); }, 100);
+        } else {
+          document.body.innerHTML = '<p>Authentication successful! You can close this window.</p>';
+        }
+      } catch(e) {
+        document.body.innerHTML = '<p>Authentication error: ' + e.message + '</p>';
       }
-      window.addEventListener("message", receiveMessage, false);
-      window.opener.postMessage("authorizing:github", "*");
     })();
   </script>
-  <p>Authenticating with GitHub...</p>
+  <p>Authenticating...</p>
 </body>
-</html>
-    `;
+</html>`;
 
-    return new Response(html, {
-      headers: { 'Content-Type': 'text/html' },
-    });
-  } catch (error) {
-    return new Response(`Error: ${error.message}`, { status: 500 });
-  }
+  return new Response(html, {
+    headers: { 'Content-Type': 'text/html' },
+  });
 }
