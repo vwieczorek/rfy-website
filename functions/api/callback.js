@@ -6,21 +6,47 @@ function renderBody(status, content) {
   // 1. Popup sends "authorizing:github" to opener
   // 2. Parent responds with a message
   // 3. Popup sends token using message.origin from the response
-  const html = `
-    <script>
-      const receiveMessage = (message) => {
+  const contentStr = JSON.stringify(content);
+  const html = `<!DOCTYPE html>
+<html>
+<head><title>OAuth</title></head>
+<body>
+  <p id="status">Authenticating...</p>
+  <script>
+    (function() {
+      var status = document.getElementById('status');
+
+      if (!window.opener) {
+        status.textContent = 'Success! You can close this window.';
+        return;
+      }
+
+      var receiveMessage = function(message) {
+        status.textContent = 'Sending credentials...';
         window.opener.postMessage(
-          'authorization:github:${status}:${JSON.stringify(content)}',
+          'authorization:github:${status}:${contentStr}',
           message.origin
         );
-        window.removeEventListener("message", receiveMessage, false);
-      }
-      window.addEventListener("message", receiveMessage, false);
-      window.opener.postMessage("authorizing:github", "*");
-    </script>
-  `;
-  const blob = new Blob([html]);
-  return blob;
+        window.removeEventListener('message', receiveMessage, false);
+        status.textContent = 'Done! Closing...';
+        setTimeout(function() { window.close(); }, 1000);
+      };
+
+      window.addEventListener('message', receiveMessage, false);
+      status.textContent = 'Waiting for CMS...';
+      window.opener.postMessage('authorizing:github', '*');
+
+      // Fallback if CMS doesn't respond in 5 seconds
+      setTimeout(function() {
+        status.textContent = 'CMS not responding, sending anyway...';
+        window.opener.postMessage('authorization:github:${status}:${contentStr}', '*');
+        setTimeout(function() { window.close(); }, 1000);
+      }, 5000);
+    })();
+  </script>
+</body>
+</html>`;
+  return html;
 }
 
 export async function onRequestGet(context) {
@@ -57,7 +83,8 @@ export async function onRequestGet(context) {
     const result = await response.json();
 
     if (result.error) {
-      return new Response(renderBody('error', result), {
+      const errorHtml = renderBody('error', result);
+      return new Response(errorHtml, {
         headers: { 'content-type': 'text/html;charset=UTF-8' },
         status: 401
       });
@@ -65,9 +92,9 @@ export async function onRequestGet(context) {
 
     const token = result.access_token;
     const provider = 'github';
-    const responseBody = renderBody('success', { token, provider });
+    const successHtml = renderBody('success', { token, provider });
 
-    return new Response(responseBody, {
+    return new Response(successHtml, {
       headers: { 'content-type': 'text/html;charset=UTF-8' },
       status: 200
     });
