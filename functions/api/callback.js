@@ -44,6 +44,10 @@ export async function onRequestGet(context) {
   const encodedData = btoa(messageData);
 
   // Return HTML that posts the token back to the CMS
+  // Decap CMS expects a two-way handshake:
+  // 1. Popup sends "authorizing:github"
+  // 2. Parent responds
+  // 3. Popup sends the actual token
   const html = `<!DOCTYPE html>
 <html>
 <head>
@@ -52,23 +56,34 @@ export async function onRequestGet(context) {
 <body>
   <script>
     (function() {
-      try {
-        var data = JSON.parse(atob("${encodedData}"));
-        var message = "authorization:github:success:" + JSON.stringify(data);
+      var data = JSON.parse(atob("${encodedData}"));
 
-        if (window.opener) {
-          // Post to specific origin for security, with longer delay for reliability
-          window.opener.postMessage(message, "https://rfy.thewicksproject.org");
-          // Also try wildcard as fallback
-          window.opener.postMessage(message, "*");
-          // Longer delay to ensure message is received
-          setTimeout(function() { window.close(); }, 1500);
-        } else {
-          document.body.innerHTML = '<p>Authentication successful! You can close this window.</p>';
-        }
-      } catch(e) {
-        document.body.innerHTML = '<p>Authentication error: ' + e.message + '</p>';
+      if (!window.opener) {
+        document.body.innerHTML = '<p>Authentication successful! You can close this window.</p>';
+        return;
       }
+
+      // Step 1: Send initial handshake message
+      window.opener.postMessage("authorizing:github", "*");
+
+      // Step 2: Listen for response from parent, then send token
+      window.addEventListener("message", function receiveMessage(event) {
+        // Send the token regardless of the message content
+        // (parent will send back the provider name)
+        var message = "authorization:github:success:" + JSON.stringify(data);
+        window.opener.postMessage(message, "*");
+
+        // Remove listener and close window
+        window.removeEventListener("message", receiveMessage);
+        setTimeout(function() { window.close(); }, 500);
+      });
+
+      // Fallback: if no response after 2 seconds, send token anyway
+      setTimeout(function() {
+        var message = "authorization:github:success:" + JSON.stringify(data);
+        window.opener.postMessage(message, "*");
+        setTimeout(function() { window.close(); }, 500);
+      }, 2000);
     })();
   </script>
   <p>Authenticating...</p>
