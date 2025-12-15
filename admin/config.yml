@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: reachforyouth/website
+  repo: vwieczorek/rfy-website
   branch: main
   auth_endpoint: /api/auth
 
