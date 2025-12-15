@@ -57,8 +57,12 @@ export async function onRequestGet(context) {
         var message = "authorization:github:success:" + JSON.stringify(data);
 
         if (window.opener) {
+          // Post to specific origin for security, with longer delay for reliability
+          window.opener.postMessage(message, "https://rfy.thewicksproject.org");
+          // Also try wildcard as fallback
           window.opener.postMessage(message, "*");
-          setTimeout(function() { window.close(); }, 100);
+          // Longer delay to ensure message is received
+          setTimeout(function() { window.close(); }, 1500);
         } else {
           document.body.innerHTML = '<p>Authentication successful! You can close this window.</p>';
         }
