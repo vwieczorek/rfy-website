@@ -84,6 +84,25 @@ The site rebuilds automatically in about 30 seconds after changes are pushed.
 
 ---
 
+## Bonus: Claude + Canva
+
+Claude can also connect to Canva. If you use Canva for RFY graphics:
+
+1. Go to Cowork tab > ... > Connectors
+2. Enable **Canva** and authorize
+
+Then you can ask Claude things like:
+
+> Find my RFY event flyer designs in Canva.
+
+> Create a social media graphic for the Rise & Shine event.
+
+> Export the volunteer recruitment flyer as a PDF.
+
+This lets you manage both the website and graphics from one place.
+
+---
+
 ## Troubleshooting
 
 **"I don't have access to that repository"**

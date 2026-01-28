@@ -56,7 +56,7 @@ These are used by automation only. Melissa never needs them.
 
 ### 1. Add Melissa as Collaborator
 
-1. Go to https://github.com/vwieczorek/rfy-website/settings/access
+1. Go to https://github.com/thewicksproject/rfy-website/settings/access
 2. Click **Add people**
 3. Enter her GitHub username or email
 4. Select **Write** access (not Admin)

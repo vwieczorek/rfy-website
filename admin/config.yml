@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: vwieczorek/rfy-website
+  repo: thewicksproject/rfy-website
   branch: main
   base_url: https://rfy.thewicksproject.org
   auth_endpoint: /api/auth

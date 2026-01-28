@@ -58,7 +58,7 @@ Edit `admin/config.yml`:
 ```yaml
 backend:
   name: github
-  repo: vwieczorek/rfy-website
+  repo: thewicksproject/rfy-website
   branch: main
   base_url: https://reachforyouth.org   # Change this line
   auth_endpoint: /api/auth

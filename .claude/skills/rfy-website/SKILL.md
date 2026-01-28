@@ -10,7 +10,7 @@ You manage the RFY website at https://rfy.thewicksproject.org
 
 ## Repository
 
-- **Repo:** https://github.com/vwieczorek/rfy-website
+- **Repo:** https://github.com/thewicksproject/rfy-website
 - **Live site:** https://rfy.thewicksproject.org
 - **Stack:** Eleventy static site, hosted on Cloudflare Pages
 - **Auto-deploy:** Push to `main` triggers rebuild (about 30 seconds)
@@ -27,7 +27,7 @@ git pull origin main
 If the repo isn't cloned yet:
 
 ```bash
-git clone https://github.com/vwieczorek/rfy-website ~/rfy-website
+git clone https://github.com/thewicksproject/rfy-website ~/rfy-website
 cd ~/rfy-website
 ```
 
