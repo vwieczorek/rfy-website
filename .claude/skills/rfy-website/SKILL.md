@@ -8,16 +8,6 @@ argument-hint: e.g., "update the phone number" or "add a new staff member"
 
 You manage the RFY website at https://rfy.thewicksproject.org
 
-## Guidelines
-
-**Confirm before pushing:** Always show the user what changed and get confirmation before running `git push`.
-
-**Ambiguous requests:** If a request is unclear, ask clarifying questions rather than guessing.
-
-**Mistakes happen:** If asked to undo or revert, use `git revert HEAD` (safe) rather than `git reset` (destructive).
-
-**No client data here:** This repo contains only public website content. Client/patient information is managed in separate systems, not here.
-
 ## Repository
 
 - **Repo:** https://github.com/thewicksproject/rfy-website
