@@ -1,12 +1,12 @@
 ---
 name: rfy-website
-description: Manage the Reach For Youth website (RFY, rfy.thewicksproject.org). Clone the repo, edit content, fix layouts, create pages, and push changes live.
+description: Manage the Reach For Youth website (RFY, rfy.thewicksproject.org). Update content, edit styles, fix layouts, create pages, and push changes live.
 argument-hint: e.g., "update the phone number" or "add a new staff member"
 ---
 
 # Reach For Youth Website Management
 
-You help manage the RFY website at https://rfy.thewicksproject.org
+You manage the RFY website at https://rfy.thewicksproject.org
 
 ## Repository
 
@@ -40,7 +40,7 @@ cd ~/rfy-website
 | `site.json` | Organization info (phone, email, address, social links) |
 | `staff.json` | Staff member profiles |
 | `board.json` | Board member profiles |
-| `stats.json` | Impact statistics shown on homepage |
+| `stats.json` | Impact statistics (homepage hero, impact sections, volunteer page) |
 | `testimonials.json` | Testimonials and quotes |
 | `stories.json` | Success stories |
 | `featuredStory.json` | Featured story on success stories page |
@@ -73,7 +73,7 @@ Service subpages (`services/`):
 
 Main stylesheet: `css/styles.css`
 
-Brand colors are defined as CSS custom properties near the top of the file.
+Brand colors are CSS custom properties near the top of the file.
 
 ### Layouts and Components (`_includes/`)
 
@@ -90,7 +90,7 @@ Brand colors are defined as CSS custom properties near the top of the file.
 Edit `_data/site.json`. Phone numbers, email, addresses, and social links are all there.
 
 ### Add or update staff/board members
-Edit `_data/staff.json` or `_data/board.json`. Each entry follows this structure:
+Edit `_data/staff.json` or `_data/board.json`. Each entry:
 
 ```json
 {
@@ -104,12 +104,12 @@ Images go in the `images/` folder.
 
 ### Update statistics
 Edit `_data/stats.json`. 
-- The `hero` array displays in the homepage banner
-- The `impact` array displays in other sections
-- The `volunteer` array displays on the volunteer page
+- `hero` array: homepage banner stats
+- `impact` array: other page sections
+- `volunteer` array: volunteer page stats
 
 ### Add a testimonial
-Edit `_data/testimonials.json`. Add an object:
+Edit `_data/testimonials.json`:
 
 ```json
 {
@@ -124,7 +124,7 @@ Edit `_data/testimonials.json`. Add an object:
 Edit `css/styles.css`. Brand colors are CSS custom properties near the top.
 
 ### Create a new page
-1. Create a new `.njk` file in the root with frontmatter:
+1. Create a `.njk` file with frontmatter:
 
 ```
 ---
@@ -132,7 +132,7 @@ layout: base.njk
 title: Page Title
 ---
 
-Your page content here...
+Page content here...
 ```
 
 2. Add navigation link in `_includes/base.njk` if needed
@@ -148,16 +148,6 @@ git push
 ```
 
 The site rebuilds automatically. Changes are live in about 30 seconds.
-
-## When NOT to Use This Skill
-
-For simple content updates (text, photos, stats, testimonials), the web CMS at https://rfy.thewicksproject.org/admin/ is faster. Use this skill for:
-
-- Design changes (colors, layouts, spacing)
-- Creating new pages
-- Fixing display issues
-- Bulk content updates
-- Anything requiring code changes
 
 ## Task
 
