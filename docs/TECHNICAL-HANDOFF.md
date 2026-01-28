@@ -1,6 +1,6 @@
 # Technical Handoff: RFY Website
 
-Reference document for Victor — setup steps and security model.
+Reference document for Victor. Setup steps and security model.
 
 ---
 
@@ -8,7 +8,7 @@ Reference document for Victor — setup steps and security model.
 
 ```
 ┌─────────────────┐     ┌─────────────┐     ┌──────────────────┐
-│  Decap CMS      │────▶│   GitHub    │────▶│ Cloudflare Pages │
+│  Decap CMS      │────>│   GitHub    │────>│ Cloudflare Pages │
 │  (Web Editor)   │     │   (Repo)    │     │   (Hosting)      │
 └─────────────────┘     └─────────────┘     └──────────────────┘
         │                      │                      │
@@ -22,10 +22,10 @@ Reference document for Victor — setup steps and security model.
 
 | System | Melissa's Access | How to Grant |
 |--------|------------------|--------------|
-| **GitHub** | Collaborator (Write) | Repo Settings → Collaborators |
+| **GitHub** | Collaborator (Write) | Repo Settings > Collaborators |
 | **Decap CMS** | Automatic via GitHub OAuth | N/A |
-| **Cloudflare** | None needed | — |
-| **Domain** | None needed | — |
+| **Cloudflare** | None needed | - |
+| **Domain** | None needed | - |
 
 ### What Melissa Can Do
 - Edit any file in the repo
@@ -105,11 +105,11 @@ Have her:
 When RFY is ready:
 
 1. **Add custom domain in Cloudflare Pages**
-   - Pages project → Custom domains → Add
+   - Pages project > Custom domains > Add
    - Enter `www.reachforyouth.org`
 
 2. **Update DNS at RFY's registrar**
-   - Add CNAME: `www` → `rfy-website.pages.dev`
+   - Add CNAME: `www` > `rfy-website.pages.dev`
    - Or transfer domain to Cloudflare
 
 3. **Update OAuth app callback URL**
@@ -117,7 +117,7 @@ When RFY is ready:
    - Point to new domain
 
 4. **Update CMS config**
-   - `admin/config.yml` → `base_url`
+   - `admin/config.yml` > `base_url`
 
 ---
 
@@ -144,16 +144,16 @@ Recommendation: Keep current setup until they have capacity for full migration. 
 ## Rollback
 
 ### Quick (GitHub)
-1. Repo → Commits
+1. Repo > Commits
 2. Find last working commit
-3. Click "..." → Revert
+3. Click "..." > Revert
 4. Commit the revert
 
 ### Full (Cloudflare)
 1. Cloudflare Pages dashboard
 2. Deployments tab
 3. Find previous working deployment
-4. Click "..." → Rollback
+4. Click "..." > Rollback
 
 ---
 
@@ -172,12 +172,12 @@ Recommendation: Keep current setup until they have capacity for full migration. 
 
 ```
 docs/
-├── MELISSA-GETTING-STARTED.md  ← Start here
-├── CLAUDE-DESKTOP-GUIDE.md     ← Advanced editing
-├── TECHNICAL-HANDOFF.md        ← This file
+├── MELISSA-GETTING-STARTED.md  <- Start here
+├── CLAUDE-DESKTOP-GUIDE.md     <- Advanced editing
+├── TECHNICAL-HANDOFF.md        <- This file
 ```
 
 Plus existing:
-- `README.md` — Technical overview
-- `EDITING-GUIDE.md` — CMS walkthrough
-- `MIGRATION.md` — Domain migration notes
+- `README.md` - Technical overview
+- `EDITING-GUIDE.md` - CMS walkthrough
+- `MIGRATION.md` - Domain migration notes

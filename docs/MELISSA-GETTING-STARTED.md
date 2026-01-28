@@ -1,6 +1,6 @@
 # Getting Started: Managing the RFY Website
 
-This guide walks you through taking ownership of the Reach For Youth website. Once set up, you'll be able to update content, add photos, and make changes that go live automatically — no waiting on anyone else.
+This guide walks you through taking ownership of the Reach For Youth website. Once set up, you can update content, add photos, and make changes that go live automatically. No waiting on anyone else.
 
 ---
 
@@ -17,10 +17,10 @@ This guide walks you through taking ownership of the Reach For Youth website. On
 
 | Method | Best For | Skill Level |
 |--------|----------|-------------|
-| **Web CMS** | Quick content updates (text, photos, stats) | Straightforward — similar to editing a Google Doc |
-| **Claude Desktop** | Design changes, new pages, complex edits | More involved — AI guides you through it |
+| **Web CMS** | Quick content updates (text, photos, stats) | Easy, similar to editing a Google Doc |
+| **Claude Desktop** | Design changes, new pages, complex edits | More involved, but AI guides you through it |
 
-Start with the Web CMS. It handles the vast majority of what you'll need day-to-day.
+Start with the Web CMS. It handles most of what you'll need day-to-day.
 
 ---
 
@@ -33,7 +33,7 @@ GitHub is where the website files live. You'll need a free account to make chang
 3. Save your password somewhere safe
 4. Send Victor your GitHub username so he can grant you access
 
-GitHub works like a version-controlled file system — it tracks every change and lets you undo mistakes. All the automation runs through it.
+GitHub works like a version-controlled file system. It tracks every change and lets you undo mistakes. All the automation runs through it.
 
 ---
 
@@ -54,7 +54,7 @@ Once Victor adds you as a collaborator:
 3. Click **"Login with GitHub"**
 4. Authorize the connection (first time only)
 
-Bookmark this link — it's your main editing dashboard.
+Bookmark this link. It's your main editing dashboard.
 
 ---
 
@@ -99,7 +99,7 @@ That's the whole process. Edit, publish, wait, done.
 
 ## If Something Goes Wrong
 
-Every change is saved in GitHub's history. Nothing is permanent until you want it to be. If you make a mistake, you can always go back — just reach out to Victor for help rolling back if needed.
+Every change is saved in GitHub's history. Nothing is permanent until you want it to be. If you make a mistake, you can always go back. Reach out to Victor for help rolling back if needed.
 
 ---
 
@@ -107,9 +107,9 @@ Every change is saved in GitHub's history. Nothing is permanent until you want i
 
 When you're comfortable with the CMS and want to tackle more advanced edits:
 
-- `CLAUDE-DESKTOP-GUIDE.md` — Using AI assistance for complex changes
-- `EDITING-GUIDE.md` — Detailed CMS walkthrough
-- `README.md` — Technical overview of how the site works
+- `CLAUDE-DESKTOP-GUIDE.md` - Using AI assistance for complex changes
+- `EDITING-GUIDE.md` - Detailed CMS walkthrough
+- `README.md` - Technical overview of how the site works
 
 ---
 
@@ -125,5 +125,5 @@ When you're comfortable with the CMS and want to tackle more advanced edits:
 
 ## Questions?
 
-- **Content questions:** The CMS is designed to be self-explanatory — explore and experiment
+- **Content questions:** The CMS is designed to be self-explanatory. Explore and experiment.
 - **Technical issues:** Contact Victor

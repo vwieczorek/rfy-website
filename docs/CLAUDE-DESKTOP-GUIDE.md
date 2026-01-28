@@ -1,8 +1,8 @@
 # Using Claude Desktop for Website Edits
 
-This guide is for when you need to make changes beyond what the web CMS can handle — design adjustments, new pages, layout fixes, or anything that requires editing the underlying files.
+This guide is for when you need to make changes beyond what the web CMS can handle: design adjustments, new pages, layout fixes, or anything that requires editing the underlying files.
 
-The approach: you describe what you want in plain English, and Claude reads the website files and makes the changes for you.
+You describe what you want in plain English. Claude reads the website files and makes the changes for you.
 
 ---
 
@@ -23,7 +23,7 @@ The approach: you describe what you want in plain English, and Claude reads the 
 3. Install and open the app
 4. Create a free account or sign in
 
-The free tier works well for website editing. The paid tier ($20/month) provides more messages per day if you need it.
+The free tier works well for website editing. The paid tier ($20/month) gives you more messages per day if you need it.
 
 ---
 
@@ -40,7 +40,7 @@ You'll need a local copy of the website to work with.
 
 ### Option B: Use GitHub Desktop
 
-This is better for ongoing work since you can sync changes back to the live site directly.
+Better for ongoing work since you can sync changes back to the live site directly.
 
 1. Download [GitHub Desktop](https://desktop.github.com/)
 2. Sign in with your GitHub account
@@ -60,7 +60,7 @@ This is better for ongoing work since you can sync changes back to the live site
 
 ## Step 4: Describe What You Need
 
-Just explain what you want in plain language. Claude will figure out which files to change and how.
+Explain what you want in plain language. Claude will figure out which files to change and how.
 
 **Examples:**
 
@@ -86,11 +86,11 @@ Claude will show you what files need to change and explain what each change does
 
 **If you're using GitHub Desktop:**
 1. Let Claude edit the files directly
-2. Open GitHub Desktop — you'll see your changes listed
+2. Open GitHub Desktop. You'll see your changes listed.
 3. Write a brief description of what you changed
 4. Click **Commit to main**
 5. Click **Push origin**
-6. Wait 30-60 seconds — the site rebuilds automatically
+6. Wait 30-60 seconds. The site rebuilds automatically.
 
 ---
 
@@ -117,7 +117,7 @@ Claude will show you what files need to change and explain what each change does
 
 **Preview locally.** You can open HTML files in your browser to see changes before pushing them live.
 
-**Ask questions.** If you're not sure how something works, just ask Claude to explain it.
+**Ask questions.** If you're not sure how something works, ask Claude to explain it.
 
 ---
 
