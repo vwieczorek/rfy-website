@@ -18,22 +18,12 @@ You describe what you want. Claude clones the repo, makes the edits, and pushes 
 
 ---
 
-## Setup (One Time)
+## One-Time Setup: Connect GitHub
 
-### 1. Install the Claude Desktop App
-
-1. Go to [claude.ai/download](https://claude.ai/download)
-2. Download and install the Mac or Windows version
-3. Sign in with your Claude account
-
-You'll need a **Pro** or **Max** subscription ($20/month or $100/month) to use the Code features. The free tier only supports chat.
-
-### 2. Connect to GitHub
-
-The first time you work on the website, Claude will need access to GitHub:
+Before Claude can push changes to the live site, you need to connect your GitHub account:
 
 1. Open Claude Desktop
-2. Click the **Code** tab
+2. Go to the **Code** tab
 3. Click the **...** menu, then **Connectors**
 4. Enable **GitHub** and authorize the connection
 
@@ -51,7 +41,7 @@ This lets Claude clone repos and push changes on your behalf.
 
 ### Tell Claude What You Want
 
-Just describe your goal in plain language. Claude handles the rest.
+Describe your goal in plain language. Claude handles the rest.
 
 **First time setup:**
 > "Clone the RFY website from https://github.com/vwieczorek/rfy-website and help me make some changes."
