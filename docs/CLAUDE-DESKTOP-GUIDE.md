@@ -6,32 +6,42 @@ You describe what you want. Claude clones the repo, makes the edits, and pushes 
 
 ---
 
-## Quick Start: Install the Skill
+## Prerequisites
 
-I've created a skill that teaches Claude everything about the RFY website. Install it once and Claude will know how to help.
-
-**On Mac, open Terminal and run:**
-```bash
-# Create the skills folder if it doesn't exist
-mkdir -p ~/.claude/skills
-
-# Clone the website repo (if you haven't already)
-git clone https://github.com/vwieczorek/rfy-website ~/rfy-website
-
-# Copy the skill
-cp -r ~/rfy-website/skill/rfy-website ~/.claude/skills/
-```
-
-That's it. Claude now knows the site structure, where files live, and how to push changes.
+You need:
+- **Claude Desktop app** (the downloadable app from claude.ai/download, not the web version)
+- **A GitHub account** with collaborator access to the repo (Victor sets this up)
 
 ---
 
-## One-Time Setup: Connect GitHub
+## Setup
+
+### Step 1: Install the Skill
+
+The skill teaches Claude everything about the RFY website. You only need to do this once.
+
+**Open Terminal:** Press Cmd+Space to open Spotlight, type "Terminal", and press Enter. You'll see a window where you paste commands and press Enter to run them.
+
+**Copy and paste these commands one at a time:**
+
+```bash
+mkdir -p ~/.claude/skills
+```
+
+```bash
+curl -L https://github.com/vwieczorek/rfy-website/archive/refs/heads/main.zip -o /tmp/rfy.zip && unzip -o /tmp/rfy.zip -d /tmp && cp -r /tmp/rfy-website-main/skill/rfy-website ~/.claude/skills/
+```
+
+That's it. The skill is installed.
+
+(The `~` in the path means your home folder. These are hidden system folders that Claude uses internally.)
+
+### Step 2: Connect GitHub
 
 Before Claude can push changes to the live site, connect your GitHub account:
 
 1. Open Claude Desktop
-2. Go to the **Code** tab
+2. Click the **Code** tab at the top (not Chat)
 3. Click the **...** menu, then **Connectors**
 4. Enable **GitHub** and authorize the connection
 
@@ -39,9 +49,17 @@ Before Claude can push changes to the live site, connect your GitHub account:
 
 ## Making Changes
 
-### Option 1: Use the Skill Directly
+### Start a Session
 
-Type `/rfy-website` followed by what you want:
+1. Open Claude Desktop
+2. Click the **Code** tab
+3. Start a new session
+
+### Use the Skill
+
+Type `/rfy-website` followed by what you want. The slash tells Claude to load this skill. Always include a space after it.
+
+**Examples:**
 
 ```
 /rfy-website Update the main phone number to (317) 555-1234
@@ -59,17 +77,16 @@ Type `/rfy-website` followed by what you want:
 /rfy-website Create a new page for summer programs with the same layout as services
 ```
 
-### Option 2: Just Describe What You Want
-
-Claude recognizes when you're talking about the website and loads the skill automatically:
-
-> "I need to update the RFY website. The testimonials section looks cramped on mobile."
-
-> "Can you fix the phone number on the RFY contact page?"
+Or just describe what you want naturally. Claude recognizes when you're talking about the RFY website and loads the skill automatically.
 
 ### Review and Approve
 
-Claude shows you what it plans to change. In **Ask mode**, you approve each edit before it happens. You'll see exactly what's changing.
+By default, Claude uses **Ask mode**: it shows you what it plans to change and waits for your approval before each edit. You'll see exactly what's changing. This is the safest way to work.
+
+To change modes, look for the mode selector next to the send button:
+- **Ask** - Claude asks before each change (recommended)
+- **Code** - Claude auto-approves file edits, still asks before commands
+- **Plan** - Claude creates a full plan for approval first
 
 ### Push Changes Live
 
@@ -88,14 +105,14 @@ The skill teaches Claude:
 - **Repository:** https://github.com/vwieczorek/rfy-website
 - **Content files:** JSON files in `_data/` (staff, stats, testimonials, etc.)
 - **Page templates:** `.njk` files in the root
-- **Styling:** `css/style.css`
+- **Styling:** `css/styles.css`
 - **How to push:** Commit to `main`, auto-deploys to Cloudflare Pages
 
 ---
 
 ## Tips
 
-**Use Ask mode when starting out.** You approve each change before it happens.
+**Start with Ask mode.** You approve each change before it happens.
 
 **Be specific.** "Make it look better" is vague. "Increase the headline font size" is clear.
 
@@ -123,28 +140,22 @@ The skill teaches Claude:
 ## Troubleshooting
 
 **"I don't have access to that repository"**
-Connect GitHub in Connectors. You also need collaborator access (Victor sets this up).
+Make sure GitHub is connected in Connectors (Code tab > ... > Connectors). You also need collaborator access to the repo.
+
+**Skill not found when I type /rfy-website**
+Re-run the install commands from Step 1. Make sure the skill folder exists at `~/.claude/skills/rfy-website/`
 
 **Changes aren't showing on the live site**
-Ask Claude "Did you push?" If yes, wait 60 seconds and hard refresh (Ctrl+Shift+R or Cmd+Shift+R).
+Ask Claude "Did you push?" If yes, wait 60 seconds and hard refresh (Cmd+Shift+R).
 
 **I made a mistake**
 Tell Claude: "Revert the last commit"
-
-**Skill not found**
-Make sure you copied the skill folder to `~/.claude/skills/rfy-website/`
 
 ---
 
 ## Updating the Skill
 
-If Victor updates the skill with new instructions:
-
-```bash
-cd ~/rfy-website
-git pull
-cp -r skill/rfy-website ~/.claude/skills/
-```
+If Victor releases updates to the skill, re-run the install command from Step 1. It will overwrite the old version.
 
 ---
 

@@ -2,29 +2,33 @@
 
 This skill teaches Claude how to manage the Reach For Youth website.
 
-## Installation
+**For complete setup instructions, see `docs/CLAUDE-DESKTOP-GUIDE.md`** in this repo.
 
-Copy the `rfy-website` folder to your Claude skills directory:
+---
 
-**Mac:**
+## Quick Install (Mac)
+
+Open Terminal (Cmd+Space, type "Terminal", press Enter) and paste:
+
 ```bash
-cp -r rfy-website ~/.claude/skills/
+mkdir -p ~/.claude/skills
 ```
 
-**Windows (PowerShell):**
-```powershell
-Copy-Item -Recurse rfy-website $env:USERPROFILE\.claude\skills\
+Then paste:
+
+```bash
+curl -L https://github.com/vwieczorek/rfy-website/archive/refs/heads/main.zip -o /tmp/rfy.zip && unzip -o /tmp/rfy.zip -d /tmp && cp -r /tmp/rfy-website-main/skill/rfy-website ~/.claude/skills/
 ```
 
-If the `~/.claude/skills/` directory doesn't exist, create it first.
+---
 
 ## Usage
 
-Once installed, you can invoke the skill in Claude Desktop:
+Once installed, open Claude Desktop, go to the **Code** tab, and type:
 
-1. Open Claude Desktop
-2. Go to the **Code** tab
-3. Type `/rfy-website` followed by what you want to do
+```
+/rfy-website [what you want to do]
+```
 
 **Examples:**
 
@@ -37,29 +41,31 @@ Once installed, you can invoke the skill in Claude Desktop:
 ```
 
 ```
-/rfy-website The testimonials section looks cramped on mobile. Add more spacing.
+/rfy-website The testimonials section looks cramped on mobile
 ```
 
-```
-/rfy-website Create a new page for summer programs
-```
+The `/` tells Claude to load this skill. Include a space before your request.
 
-Or just describe what you want in plain language. Claude will recognize when this skill applies and load it automatically.
+---
 
 ## What the Skill Knows
 
 - Repository location and how to clone it
-- Site structure (which files control what)
+- Site structure (which files control what content)
 - How to edit content, styles, and layouts
 - How to commit and push changes
 - When to use the web CMS vs Claude
 
-## Updating the Skill
+---
 
-To get the latest version, pull the repo and copy the skill folder again:
+## Prerequisites
 
-```bash
-cd ~/path/to/rfy-website
-git pull
-cp -r skill/rfy-website ~/.claude/skills/
-```
+- Claude Desktop app (not the web version)
+- GitHub account with repo access (ask Victor)
+- GitHub connected in Claude (Code tab > ... > Connectors > GitHub)
+
+---
+
+## Updating
+
+To get the latest skill version, re-run the curl command above.
